@@ -1,0 +1,107 @@
+{
+  "checkedAt": "2026-10-08",
+  "benchmark": {
+    "principal": 1200000,
+    "months": 300,
+    "nominalAnnualPct": 4.5,
+    "method": "annuity",
+    "track": "fixed_unlinked"
+  },
+  "directlyExercised": [
+    {
+      "bank": "לאומי",
+      "url": "https://ufapi.bankleumi.co.il/mortgageCalculator/ExtCalc",
+      "firstPayment": 6669,
+      "total": 2000997,
+      "peak": 6669,
+      "notes": "עיגול תצוגה שונה; עד חמישה מסלולים ושיטות שפיצר, קרן שווה ובוליט"
+    },
+    {
+      "bank": "הפועלים",
+      "url": "https://mortgage.bankhapoalim.co.il/ng-portals/mortgage-calculator/he",
+      "firstPayment": 6669.99,
+      "total": 2000996.75,
+      "peak": 6669.99,
+      "notes": "סלים אחידים ותמהיל אישי; נמצא גם שינוי ריבית כל 18 חודשים"
+    },
+    {
+      "bank": "דיסקונט",
+      "url": "https://mortgage.discountbank.co.il/get-mortgage/calculator?calculator=2",
+      "firstPayment": 6670,
+      "total": 2000999,
+      "peak": 6675,
+      "notes": "מחשבון בסיסי והופכי, תמהיל חמישה סוגי מסלולים; סיבת פער השיא הקטן לא אומתה"
+    },
+    {
+      "bank": "מרכנתיל",
+      "url": "https://mortgage.mercantile.co.il/general/mortgage-calculator?calculator=2",
+      "firstPayment": 6670,
+      "total": 2000999,
+      "peak": 6675,
+      "notes": "מחשבון בסיסי ותמהיל; תוצאה זהה לדיסקונט, סיבת פער השיא הקטן לא אומתה"
+    },
+    {
+      "bank": "ירושלים",
+      "url": "https://calculator.bankjerusalem.co.il/",
+      "firstPayment": 6669.99,
+      "total": 2000996.92,
+      "peak": 6669.99,
+      "notes": "ארבעה תמהילים, גרייס ובולט, לוח 300 חודשים נשמר"
+    },
+    {
+      "bank": "הבינלאומי",
+      "url": "https://fibi-calc.co.il/",
+      "firstPayment": 6669.99,
+      "total": 2000996.92,
+      "peak": 6669.99,
+      "notes": "ארבעה תמהילים, גרייס בחודשים, לוח סילוקין"
+    }
+  ],
+  "otherTest": {
+    "bank": "מזרחי טפחות",
+    "url": "https://www.mizrahi-tefahot.co.il/mortgages/calculator/",
+    "principal": 1200000,
+    "firstPayment": 6479.84,
+    "total": 2390209.32,
+    "peak": 7912.88,
+    "note": "נבדק תמהיל ברירת מחדל של ארבעה מסלולים, אינו זהה למקרה הקבוע להשוואה"
+  },
+  "sharedServices": [
+    {
+      "bank": "מסד",
+      "service": "מחשבון הבינלאומי",
+      "url": "https://www.bankmassad.co.il/private/loansmortgage/mortgages/calculators/"
+    },
+    {
+      "bank": "פאגי",
+      "service": "מחשבון הבינלאומי",
+      "url": "https://www.pagi.co.il/private/loansmortgage/mortgages/calculators/"
+    },
+    {
+      "bank": "אוצר החייל",
+      "service": "מחשבון הבינלאומי לפי מדריך הבנק",
+      "url": "https://www.bankotsar.co.il/"
+    },
+    {
+      "bank": "יהב",
+      "service": "משכנתאות מזרחי טפחות",
+      "url": "https://www.bank-yahav.co.il/loans/mortgage-in-tefahot/"
+    }
+  ],
+  "notFound": [
+    {
+      "bank": "ONE ZERO",
+      "url": "https://www.onezerobank.com/",
+      "status": "לא אותר מחשבון משכנתא ציבורי בקטלוג האתר שנבדק"
+    },
+    {
+      "bank": "אש",
+      "url": "https://esh.com/he-il/",
+      "status": "לא אותר מחשבון משכנתא ציבורי באתר שנבדק"
+    }
+  ],
+  "limitations": [
+    "אין עדיין דוגמאות אנונימיות של אישורים עקרוניים אמיתיים לאימות תנאים חוזיים",
+    "הבדיקות בוצעו במחשבונים הפומביים, לא במערכות החיתום הפנימיות של הבנקים"
+  ]
+}

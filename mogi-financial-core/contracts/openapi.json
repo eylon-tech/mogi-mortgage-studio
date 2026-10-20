@@ -1,0 +1,2360 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Mogi Financial Core",
+    "version": "0.2.0",
+    "description": "Historical BOI evidence and reproducible monthly cashflow. Local core and aggregate-rate research; personal pricing/optimization not enabled."
+  },
+  "servers": [
+    {
+      "url": "http://127.0.0.1:4318"
+    }
+  ],
+  "paths": {
+    "/v1/regulation/rules": {
+      "get": {
+        "operationId": "regulationRules",
+        "description": "Versioned ordinary-scope baseline. Exceptions and dates outside verification window require review; never a bank approval.",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Invalid input or unavailable complete curve",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/research/rate-backtests/latest": {
+      "get": {
+        "operationId": "latestRateBacktest",
+        "description": "Immutable aggregate-rate research. Latest-vintage data with assumed publication lags, not a verified real-time backtest or customer-pricing model.",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Invalid input or unavailable complete curve",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/bundles": {
+      "post": {
+        "operationId": "simulateBundle",
+        "description": "Aggregate per-track monthly cashflows; preserve current payments when complete future scenarios are unavailable. Includes versioned regulatory baseline.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BundleRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Saved bundle",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BundleResult"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Invalid input or unavailable complete curve",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/bundles/{id}": {
+      "get": {
+        "operationId": "savedBundle",
+        "description": "Immutable resolved bundle and evidence",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Invalid input or unavailable complete curve",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/health": {
+      "get": {
+        "operationId": "health",
+        "description": "Local service and database status",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "status": {
+                      "const": "ok"
+                    },
+                    "backend": {
+                      "type": "string"
+                    },
+                    "personalPricingEnabled": {
+                      "const": false
+                    }
+                  },
+                  "required": [
+                    "status",
+                    "backend",
+                    "personalPricingEnabled"
+                  ]
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Invalid input or unavailable complete curve",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/coverage": {
+      "get": {
+        "operationId": "coverage",
+        "description": "Current imported release coverage, missing values and known source limitations",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Coverage"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Invalid input or unavailable complete curve",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/series": {
+      "get": {
+        "operationId": "series",
+        "description": "Series catalog with original SDMX dimensions and units. Does not imply historical availability.",
+        "parameters": [
+          {
+            "name": "source",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 2000,
+              "default": 1000
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 10000000,
+              "default": 0
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/Series"
+                      }
+                    },
+                    "limit": {
+                      "type": "integer"
+                    },
+                    "offset": {
+                      "type": "integer"
+                    }
+                  },
+                  "required": [
+                    "items",
+                    "limit",
+                    "offset"
+                  ]
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Invalid input or unavailable complete curve",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/observations": {
+      "get": {
+        "operationId": "observations",
+        "description": "Latest COMPLETE release captured AND ingested by asOf. Equator retains previously captured months outside newer rolling windows; within a covered window missing and deleted cells do not resurrect. Other sources use one complete snapshot. Results ordered by series_id, period, horizon_months, effective_from, id. All times require a UTC offset.",
+        "parameters": [
+          {
+            "name": "source",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "series",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "asOf",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "from",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            }
+          },
+          {
+            "name": "to",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 2000,
+              "default": 1000
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 10000000,
+              "default": 0
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/Observation"
+                      }
+                    },
+                    "asOf": {
+                      "type": "string",
+                      "format": "date-time"
+                    },
+                    "availabilityPolicy": {
+                      "const": "captured_and_ingested_by_asOf"
+                    },
+                    "limit": {
+                      "type": "integer"
+                    },
+                    "offset": {
+                      "type": "integer"
+                    }
+                  },
+                  "required": [
+                    "items",
+                    "asOf",
+                    "availabilityPolicy",
+                    "limit",
+                    "offset"
+                  ]
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Invalid input or unavailable complete curve",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/curves/boi451": {
+      "get": {
+        "operationId": "boi451Curve",
+        "description": "Published market-model values, NOT realized CPI or personal rate predictions. Calendar and index-period vintages remain distinct.",
+        "parameters": [
+          {
+            "name": "asOf",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "vintage",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[0-9]{4}-[0-9]{2}-01$"
+            }
+          },
+          {
+            "name": "averaging",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "enum": [
+                "calendar",
+                "index_period"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Curve"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Invalid input or unavailable complete curve",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/simulations": {
+      "post": {
+        "operationId": "simulate",
+        "description": "Persist resolved inputs, immutable evidence references, engine version and deterministic monthly cashflow. Nominal/effective convention and index floor must be explicit. No actual-day calendar, automatic legal fees, borrower eligibility or optimizer in this first engine.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SimulationRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SimulationResult"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid JSON",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Cross-origin requests disabled",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "413": {
+            "description": "Body too large",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "415": {
+            "description": "JSON required",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Invalid input or unavailable complete curve",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/simulations/{id}": {
+      "get": {
+        "operationId": "simulation",
+        "description": "Retrieve immutable input and output for replay. This local prototype is not a multi-tenant public API.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Saved calculation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "engine_version": {
+                      "type": "string"
+                    },
+                    "created_at": {
+                      "type": "string",
+                      "format": "date-time"
+                    },
+                    "input_sha256": {
+                      "type": "string"
+                    },
+                    "input": {
+                      "type": "object"
+                    },
+                    "result": {
+                      "type": "object"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "engine_version",
+                    "created_at",
+                    "input_sha256",
+                    "input",
+                    "result"
+                  ]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Invalid input or unavailable complete curve",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "BundleRequest": {
+        "type": "object",
+        "properties": {
+          "schemaVersion": {
+            "type": "string",
+            "const": "1"
+          },
+          "valuationDate": {
+            "type": "string",
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+          },
+          "discountAnnualEffectivePercent": {
+            "type": "string",
+            "maxLength": 64,
+            "pattern": "^-?\\d+(\\.\\d{1,16})?$",
+            "default": "0"
+          },
+          "transaction": {
+            "type": "object",
+            "properties": {
+              "purpose": {
+                "type": "string",
+                "enum": [
+                  "purchase",
+                  "non_purchase",
+                  "refinance",
+                  "bridge",
+                  "subsidized_purchase"
+                ]
+              },
+              "propertyClass": {
+                "type": "string",
+                "enum": [
+                  "single",
+                  "replacement",
+                  "investment"
+                ]
+              },
+              "propertyValue": {
+                "type": "string",
+                "maxLength": 64,
+                "pattern": "^-?\\d+(\\.\\d{1,16})?$"
+              },
+              "inIsrael": {
+                "type": "boolean"
+              },
+              "isIsraeliCitizen": {
+                "type": "boolean"
+              },
+              "willResideInProperty": {
+                "type": "boolean"
+              },
+              "propertyCountAfterTransaction": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 100
+              },
+              "nonPurchaseConcessionEvidence": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 500
+              },
+              "specialCases": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "state_funding",
+                    "foreign_currency",
+                    "developer_subsidy",
+                    "government_guarantee",
+                    "unverified_property_value",
+                    "relative_income"
+                  ]
+                },
+                "default": []
+              }
+            },
+            "required": [
+              "purpose",
+              "propertyClass",
+              "propertyValue",
+              "inIsrael",
+              "isIsraeliCitizen",
+              "willResideInProperty",
+              "propertyCountAfterTransaction"
+            ],
+            "additionalProperties": false
+          },
+          "income": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 100
+                },
+                "kind": {
+                  "type": "string",
+                  "enum": [
+                    "salary",
+                    "dividend",
+                    "rent",
+                    "future_rent",
+                    "other"
+                  ]
+                },
+                "declaredNet": {
+                  "type": "string",
+                  "maxLength": 64,
+                  "pattern": "^-?\\d+(\\.\\d{1,16})?$"
+                },
+                "recognizedNet": {
+                  "type": "string",
+                  "maxLength": 64,
+                  "pattern": "^-?\\d+(\\.\\d{1,16})?$"
+                },
+                "frequency": {
+                  "type": "string",
+                  "enum": [
+                    "monthly",
+                    "annual"
+                  ]
+                },
+                "status": {
+                  "type": "string",
+                  "enum": [
+                    "included",
+                    "requires_review",
+                    "excluded"
+                  ]
+                },
+                "reason": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 500
+                },
+                "evidenceReference": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 500
+                }
+              },
+              "required": [
+                "id",
+                "kind",
+                "declaredNet",
+                "recognizedNet",
+                "frequency",
+                "status",
+                "reason"
+              ],
+              "additionalProperties": false
+            },
+            "minItems": 1,
+            "maxItems": 30
+          },
+          "commitments": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 100
+                },
+                "kind": {
+                  "type": "string",
+                  "enum": [
+                    "same_property_mortgage",
+                    "other_loan",
+                    "maintenance",
+                    "lease",
+                    "rent"
+                  ]
+                },
+                "payment": {
+                  "type": "string",
+                  "maxLength": 64,
+                  "pattern": "^-?\\d+(\\.\\d{1,16})?$"
+                },
+                "remainingMonths": {
+                  "anyOf": [
+                    {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 1200
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "remainingPrincipal": {
+                  "type": "string",
+                  "maxLength": 64,
+                  "pattern": "^-?\\d+(\\.\\d{1,16})?$",
+                  "default": "0"
+                },
+                "disposition": {
+                  "type": "string",
+                  "enum": [
+                    "retained",
+                    "repaid"
+                  ]
+                },
+                "payoffEvidence": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 500
+                }
+              },
+              "required": [
+                "id",
+                "kind",
+                "payment",
+                "remainingMonths",
+                "disposition"
+              ],
+              "additionalProperties": false
+            },
+            "maxItems": 50,
+            "default": []
+          },
+          "tracks": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 100
+                },
+                "kind": {
+                  "type": "string",
+                  "enum": [
+                    "fixed_unlinked",
+                    "fixed_linked",
+                    "prime",
+                    "variable_unlinked",
+                    "variable_linked",
+                    "entitlement",
+                    "other"
+                  ]
+                },
+                "projection": {
+                  "type": "string",
+                  "enum": [
+                    "current_terms_only",
+                    "explicit_scenario"
+                  ]
+                },
+                "resetPolicy": {
+                  "type": "object",
+                  "properties": {
+                    "firstResetMonth": {
+                      "type": "integer",
+                      "minimum": 2,
+                      "maximum": 1200
+                    },
+                    "intervalMonths": {
+                      "type": "integer",
+                      "minimum": 1,
+                      "maximum": 120
+                    }
+                  },
+                  "required": [
+                    "firstResetMonth",
+                    "intervalMonths"
+                  ],
+                  "additionalProperties": false
+                },
+                "simulation": {
+                  "type": "object",
+                  "properties": {
+                    "loan": {
+                      "type": "object",
+                      "properties": {
+                        "schemaVersion": {
+                          "type": "string",
+                          "const": "1"
+                        },
+                        "currency": {
+                          "type": "string",
+                          "const": "ILS"
+                        },
+                        "principal": {
+                          "type": "string",
+                          "maxLength": 64,
+                          "pattern": "^-?\\d+(\\.\\d{1,16})?$"
+                        },
+                        "termMonths": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 360
+                        },
+                        "rate": {
+                          "type": "object",
+                          "properties": {
+                            "annualPercent": {
+                              "type": "string",
+                              "maxLength": 64,
+                              "pattern": "^-?\\d+(\\.\\d{1,16})?$"
+                            },
+                            "convention": {
+                              "type": "string",
+                              "enum": [
+                                "nominal_annual",
+                                "effective_annual"
+                              ]
+                            },
+                            "origin": {
+                              "type": "string",
+                              "enum": [
+                                "contract",
+                                "manual",
+                                "scenario"
+                              ]
+                            },
+                            "description": {
+                              "type": "string",
+                              "minLength": 1,
+                              "maxLength": 500
+                            }
+                          },
+                          "required": [
+                            "annualPercent",
+                            "convention",
+                            "origin",
+                            "description"
+                          ],
+                          "additionalProperties": false
+                        },
+                        "amortization": {
+                          "type": "string",
+                          "enum": [
+                            "annuity",
+                            "equal_principal",
+                            "interest_only",
+                            "capitalized_balloon"
+                          ]
+                        },
+                        "grace": {
+                          "type": "object",
+                          "properties": {
+                            "months": {
+                              "type": "integer",
+                              "minimum": 0,
+                              "maximum": 359
+                            },
+                            "mode": {
+                              "type": "string",
+                              "enum": [
+                                "interest_only",
+                                "capitalize"
+                              ]
+                            }
+                          },
+                          "required": [
+                            "months",
+                            "mode"
+                          ],
+                          "additionalProperties": false,
+                          "default": {
+                            "months": 0,
+                            "mode": "interest_only"
+                          }
+                        },
+                        "resets": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "month": {
+                                "type": "integer",
+                                "minimum": 1,
+                                "maximum": 360
+                              },
+                              "annualPercent": {
+                                "type": "string",
+                                "maxLength": 64,
+                                "pattern": "^-?\\d+(\\.\\d{1,16})?$"
+                              },
+                              "description": {
+                                "type": "string",
+                                "minLength": 1,
+                                "maxLength": 500
+                              }
+                            },
+                            "required": [
+                              "month",
+                              "annualPercent",
+                              "description"
+                            ],
+                            "additionalProperties": false
+                          },
+                          "maxItems": 359,
+                          "default": []
+                        },
+                        "indexation": {
+                          "type": "object",
+                          "properties": {
+                            "base": {
+                              "type": "string",
+                              "maxLength": 64,
+                              "pattern": "^-?\\d+(\\.\\d{1,16})?$"
+                            },
+                            "levels": {
+                              "type": "array",
+                              "items": {
+                                "type": "string",
+                                "maxLength": 64,
+                                "pattern": "^-?\\d+(\\.\\d{1,16})?$"
+                              },
+                              "minItems": 1,
+                              "maxItems": 360
+                            },
+                            "floor": {
+                              "type": "string",
+                              "enum": [
+                                "none",
+                                "base"
+                              ]
+                            },
+                            "origin": {
+                              "type": "string",
+                              "enum": [
+                                "scenario",
+                                "manual",
+                                "historical_replay"
+                              ]
+                            },
+                            "description": {
+                              "type": "string",
+                              "minLength": 1,
+                              "maxLength": 500
+                            }
+                          },
+                          "required": [
+                            "base",
+                            "levels",
+                            "floor",
+                            "origin",
+                            "description"
+                          ],
+                          "additionalProperties": false
+                        },
+                        "prepayments": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "month": {
+                                "type": "integer",
+                                "minimum": 1,
+                                "maximum": 360
+                              },
+                              "amount": {
+                                "type": "string",
+                                "maxLength": 64,
+                                "pattern": "^-?\\d+(\\.\\d{1,16})?$"
+                              },
+                              "fee": {
+                                "type": "string",
+                                "maxLength": 64,
+                                "pattern": "^-?\\d+(\\.\\d{1,16})?$"
+                              },
+                              "mode": {
+                                "type": "string",
+                                "enum": [
+                                  "recast_payment",
+                                  "reduce_term"
+                                ]
+                              }
+                            },
+                            "required": [
+                              "month",
+                              "amount",
+                              "fee",
+                              "mode"
+                            ],
+                            "additionalProperties": false
+                          },
+                          "maxItems": 360,
+                          "default": []
+                        },
+                        "upfrontFee": {
+                          "type": "string",
+                          "maxLength": 64,
+                          "pattern": "^-?\\d+(\\.\\d{1,16})?$",
+                          "default": "0"
+                        },
+                        "discountAnnualEffectivePercent": {
+                          "type": "string",
+                          "maxLength": 64,
+                          "pattern": "^-?\\d+(\\.\\d{1,16})?$",
+                          "default": "0"
+                        }
+                      },
+                      "required": [
+                        "schemaVersion",
+                        "currency",
+                        "principal",
+                        "termMonths",
+                        "rate",
+                        "amortization"
+                      ],
+                      "additionalProperties": false
+                    },
+                    "boi451Index": {
+                      "type": "object",
+                      "properties": {
+                        "asOf": {
+                          "type": "string",
+                          "format": "date-time"
+                        },
+                        "vintage": {
+                          "type": "string",
+                          "pattern": "^\\d{4}-\\d{2}-01$"
+                        },
+                        "averaging": {
+                          "type": "string",
+                          "enum": [
+                            "calendar",
+                            "index_period"
+                          ]
+                        },
+                        "indexFloor": {
+                          "type": "string",
+                          "enum": [
+                            "none",
+                            "base"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "asOf",
+                        "vintage",
+                        "averaging",
+                        "indexFloor"
+                      ],
+                      "additionalProperties": false
+                    },
+                    "cbsRealizedIndex": {
+                      "type": "object",
+                      "properties": {
+                        "asOf": {
+                          "type": "string",
+                          "format": "date-time"
+                        },
+                        "baseObservationPeriod": {
+                          "type": "string",
+                          "pattern": "^\\d{4}-\\d{2}-01$"
+                        },
+                        "firstObservationPeriod": {
+                          "type": "string",
+                          "pattern": "^\\d{4}-\\d{2}-01$"
+                        },
+                        "baseLabel": {
+                          "type": "string",
+                          "minLength": 1,
+                          "maxLength": 100,
+                          "default": "1951 ספטמבר"
+                        },
+                        "indexFloor": {
+                          "type": "string",
+                          "enum": [
+                            "none",
+                            "base"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "asOf",
+                        "baseObservationPeriod",
+                        "firstObservationPeriod",
+                        "indexFloor"
+                      ],
+                      "additionalProperties": false
+                    }
+                  },
+                  "required": [
+                    "loan"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "required": [
+                "id",
+                "kind",
+                "projection",
+                "simulation"
+              ],
+              "additionalProperties": false
+            },
+            "minItems": 1,
+            "maxItems": 20
+          }
+        },
+        "required": [
+          "schemaVersion",
+          "valuationDate",
+          "transaction",
+          "income",
+          "tracks"
+        ],
+        "additionalProperties": false
+      },
+      "BundleResult": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "engineVersion": {
+            "type": "string"
+          },
+          "schemaVersion": {
+            "const": "1"
+          },
+          "tracks": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          },
+          "currentTerms": {
+            "type": "object"
+          },
+          "scenario": {
+            "type": [
+              "object",
+              "null"
+            ]
+          },
+          "scenarioStatus": {
+            "enum": [
+              "incomplete",
+              "explicit_scenario",
+              "historical_replay",
+              "mixed_replay_and_scenario"
+            ]
+          },
+          "completeScenario": {
+            "type": "boolean"
+          },
+          "headline": {
+            "type": "object"
+          },
+          "regulation": {
+            "type": "object"
+          },
+          "dataEvidence": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          },
+          "personalPricingEnabled": {
+            "const": false
+          },
+          "optimizationEnabled": {
+            "const": false
+          }
+        },
+        "required": [
+          "id",
+          "engineVersion",
+          "schemaVersion",
+          "tracks",
+          "currentTerms",
+          "scenario",
+          "scenarioStatus",
+          "completeScenario",
+          "headline",
+          "regulation",
+          "dataEvidence",
+          "personalPricingEnabled",
+          "optimizationEnabled"
+        ]
+      },
+      "SimulationRequest": {
+        "type": "object",
+        "properties": {
+          "loan": {
+            "type": "object",
+            "properties": {
+              "schemaVersion": {
+                "type": "string",
+                "const": "1"
+              },
+              "currency": {
+                "type": "string",
+                "const": "ILS"
+              },
+              "principal": {
+                "type": "string",
+                "maxLength": 64,
+                "pattern": "^-?\\d+(\\.\\d{1,16})?$"
+              },
+              "termMonths": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 360
+              },
+              "rate": {
+                "type": "object",
+                "properties": {
+                  "annualPercent": {
+                    "type": "string",
+                    "maxLength": 64,
+                    "pattern": "^-?\\d+(\\.\\d{1,16})?$"
+                  },
+                  "convention": {
+                    "type": "string",
+                    "enum": [
+                      "nominal_annual",
+                      "effective_annual"
+                    ]
+                  },
+                  "origin": {
+                    "type": "string",
+                    "enum": [
+                      "contract",
+                      "manual",
+                      "scenario"
+                    ]
+                  },
+                  "description": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 500
+                  }
+                },
+                "required": [
+                  "annualPercent",
+                  "convention",
+                  "origin",
+                  "description"
+                ],
+                "additionalProperties": false
+              },
+              "amortization": {
+                "type": "string",
+                "enum": [
+                  "annuity",
+                  "equal_principal",
+                  "interest_only",
+                  "capitalized_balloon"
+                ]
+              },
+              "grace": {
+                "type": "object",
+                "properties": {
+                  "months": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 359
+                  },
+                  "mode": {
+                    "type": "string",
+                    "enum": [
+                      "interest_only",
+                      "capitalize"
+                    ]
+                  }
+                },
+                "required": [
+                  "months",
+                  "mode"
+                ],
+                "additionalProperties": false,
+                "default": {
+                  "months": 0,
+                  "mode": "interest_only"
+                }
+              },
+              "resets": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "month": {
+                      "type": "integer",
+                      "minimum": 1,
+                      "maximum": 360
+                    },
+                    "annualPercent": {
+                      "type": "string",
+                      "maxLength": 64,
+                      "pattern": "^-?\\d+(\\.\\d{1,16})?$"
+                    },
+                    "description": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 500
+                    }
+                  },
+                  "required": [
+                    "month",
+                    "annualPercent",
+                    "description"
+                  ],
+                  "additionalProperties": false
+                },
+                "maxItems": 359,
+                "default": []
+              },
+              "indexation": {
+                "type": "object",
+                "properties": {
+                  "base": {
+                    "type": "string",
+                    "maxLength": 64,
+                    "pattern": "^-?\\d+(\\.\\d{1,16})?$"
+                  },
+                  "levels": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "maxLength": 64,
+                      "pattern": "^-?\\d+(\\.\\d{1,16})?$"
+                    },
+                    "minItems": 1,
+                    "maxItems": 360
+                  },
+                  "floor": {
+                    "type": "string",
+                    "enum": [
+                      "none",
+                      "base"
+                    ]
+                  },
+                  "origin": {
+                    "type": "string",
+                    "enum": [
+                      "scenario",
+                      "manual",
+                      "historical_replay"
+                    ]
+                  },
+                  "description": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 500
+                  }
+                },
+                "required": [
+                  "base",
+                  "levels",
+                  "floor",
+                  "origin",
+                  "description"
+                ],
+                "additionalProperties": false
+              },
+              "prepayments": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "month": {
+                      "type": "integer",
+                      "minimum": 1,
+                      "maximum": 360
+                    },
+                    "amount": {
+                      "type": "string",
+                      "maxLength": 64,
+                      "pattern": "^-?\\d+(\\.\\d{1,16})?$"
+                    },
+                    "fee": {
+                      "type": "string",
+                      "maxLength": 64,
+                      "pattern": "^-?\\d+(\\.\\d{1,16})?$"
+                    },
+                    "mode": {
+                      "type": "string",
+                      "enum": [
+                        "recast_payment",
+                        "reduce_term"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "month",
+                    "amount",
+                    "fee",
+                    "mode"
+                  ],
+                  "additionalProperties": false
+                },
+                "maxItems": 360,
+                "default": []
+              },
+              "upfrontFee": {
+                "type": "string",
+                "maxLength": 64,
+                "pattern": "^-?\\d+(\\.\\d{1,16})?$",
+                "default": "0"
+              },
+              "discountAnnualEffectivePercent": {
+                "type": "string",
+                "maxLength": 64,
+                "pattern": "^-?\\d+(\\.\\d{1,16})?$",
+                "default": "0"
+              }
+            },
+            "required": [
+              "schemaVersion",
+              "currency",
+              "principal",
+              "termMonths",
+              "rate",
+              "amortization"
+            ],
+            "additionalProperties": false
+          },
+          "boi451Index": {
+            "type": "object",
+            "properties": {
+              "asOf": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "vintage": {
+                "type": "string",
+                "pattern": "^\\d{4}-\\d{2}-01$"
+              },
+              "averaging": {
+                "type": "string",
+                "enum": [
+                  "calendar",
+                  "index_period"
+                ]
+              },
+              "indexFloor": {
+                "type": "string",
+                "enum": [
+                  "none",
+                  "base"
+                ]
+              }
+            },
+            "required": [
+              "asOf",
+              "vintage",
+              "averaging",
+              "indexFloor"
+            ],
+            "additionalProperties": false
+          },
+          "cbsRealizedIndex": {
+            "type": "object",
+            "properties": {
+              "asOf": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "baseObservationPeriod": {
+                "type": "string",
+                "pattern": "^\\d{4}-\\d{2}-01$"
+              },
+              "firstObservationPeriod": {
+                "type": "string",
+                "pattern": "^\\d{4}-\\d{2}-01$"
+              },
+              "baseLabel": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 100,
+                "default": "1951 ספטמבר"
+              },
+              "indexFloor": {
+                "type": "string",
+                "enum": [
+                  "none",
+                  "base"
+                ]
+              }
+            },
+            "required": [
+              "asOf",
+              "baseObservationPeriod",
+              "firstObservationPeriod",
+              "indexFloor"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "loan"
+        ],
+        "additionalProperties": false,
+        "description": "Monthly convention, ILS, decimal strings. Cross-field validation: complete index path, unique reset/prepayment months, events within term, grace shorter than term, reduce_term only for annuity, and whole-agora monetary inputs. BOI index scenario and manual indexation are mutually exclusive. Personal rate prediction is disabled."
+      },
+      "Error": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "error": {
+            "type": "string"
+          },
+          "issues": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          }
+        },
+        "required": [
+          "error"
+        ]
+      },
+      "Series": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "source_id": {
+            "type": "string"
+          },
+          "source_code": {
+            "type": "string"
+          },
+          "label": {
+            "type": "string"
+          },
+          "frequency": {
+            "enum": [
+              "D",
+              "M",
+              "I"
+            ]
+          },
+          "unit": {
+            "type": "string"
+          },
+          "unit_multiplier": {
+            "type": "integer"
+          },
+          "value_class": {
+            "enum": [
+              "observed",
+              "market_model"
+            ]
+          },
+          "rate_convention": {
+            "enum": [
+              "nominal_annual_percent",
+              "effective_annual_percent",
+              "source_unspecified",
+              "not_a_rate"
+            ]
+          },
+          "dimensions": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "id",
+          "source_id",
+          "source_code",
+          "label",
+          "frequency",
+          "unit",
+          "unit_multiplier",
+          "value_class",
+          "rate_convention",
+          "dimensions"
+        ]
+      },
+      "Observation": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "series_id": {
+            "type": "string"
+          },
+          "period": {
+            "type": "string",
+            "format": "date"
+          },
+          "horizon_months": {
+            "type": "integer"
+          },
+          "effective_from": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "date"
+          },
+          "value": {
+            "anyOf": [
+              {
+                "type": "string",
+                "pattern": "^-?[0-9]+(\\.[0-9]+)?$",
+                "description": "Decimal string; never a binary JSON floating point value"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "status": {
+            "enum": [
+              "present",
+              "missing",
+              "invalid"
+            ]
+          },
+          "raw_value": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "release_status": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "source_locator": {
+            "type": "object"
+          },
+          "document_id": {
+            "type": "string"
+          },
+          "sha256": {
+            "type": "string"
+          },
+          "fetched_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "source_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "source_reported_date": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "date"
+          },
+          "published_at": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "date-time"
+          },
+          "ingested_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "parser_version": {
+            "type": "string"
+          },
+          "value_class": {
+            "enum": [
+              "observed",
+              "market_model"
+            ]
+          },
+          "rate_convention": {
+            "type": "string"
+          },
+          "unit": {
+            "type": "string"
+          },
+          "unit_multiplier": {
+            "type": "integer"
+          },
+          "dimensions": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "id",
+          "series_id",
+          "period",
+          "horizon_months",
+          "effective_from",
+          "value",
+          "status",
+          "raw_value",
+          "release_status",
+          "source_locator",
+          "document_id",
+          "sha256",
+          "fetched_at",
+          "source_url",
+          "source_reported_date",
+          "published_at",
+          "ingested_at",
+          "parser_version",
+          "value_class",
+          "rate_convention",
+          "unit",
+          "unit_multiplier",
+          "dimensions"
+        ]
+      },
+      "CashflowRow": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "month": {
+            "type": "integer"
+          },
+          "opening": {
+            "type": "string",
+            "pattern": "^-?[0-9]+(\\.[0-9]+)?$",
+            "description": "Decimal string; never a binary JSON floating point value"
+          },
+          "annualRatePercent": {
+            "type": "string",
+            "pattern": "^-?[0-9]+(\\.[0-9]+)?$",
+            "description": "Decimal string; never a binary JSON floating point value"
+          },
+          "indexLevel": {
+            "type": "string",
+            "pattern": "^-?[0-9]+(\\.[0-9]+)?$",
+            "description": "Decimal string; never a binary JSON floating point value"
+          },
+          "indexation": {
+            "type": "string",
+            "pattern": "^-?[0-9]+(\\.[0-9]+)?$",
+            "description": "Decimal string; never a binary JSON floating point value"
+          },
+          "interestAccrued": {
+            "type": "string",
+            "pattern": "^-?[0-9]+(\\.[0-9]+)?$",
+            "description": "Decimal string; never a binary JSON floating point value"
+          },
+          "capitalizedInterest": {
+            "type": "string",
+            "pattern": "^-?[0-9]+(\\.[0-9]+)?$",
+            "description": "Decimal string; never a binary JSON floating point value"
+          },
+          "interestPaid": {
+            "type": "string",
+            "pattern": "^-?[0-9]+(\\.[0-9]+)?$",
+            "description": "Decimal string; never a binary JSON floating point value"
+          },
+          "principalPaid": {
+            "type": "string",
+            "pattern": "^-?[0-9]+(\\.[0-9]+)?$",
+            "description": "Decimal string; never a binary JSON floating point value"
+          },
+          "extraPrincipal": {
+            "type": "string",
+            "pattern": "^-?[0-9]+(\\.[0-9]+)?$",
+            "description": "Decimal string; never a binary JSON floating point value"
+          },
+          "fee": {
+            "type": "string",
+            "pattern": "^-?[0-9]+(\\.[0-9]+)?$",
+            "description": "Decimal string; never a binary JSON floating point value"
+          },
+          "payment": {
+            "type": "string",
+            "pattern": "^-?[0-9]+(\\.[0-9]+)?$",
+            "description": "Decimal string; never a binary JSON floating point value"
+          },
+          "closing": {
+            "type": "string",
+            "pattern": "^-?[0-9]+(\\.[0-9]+)?$",
+            "description": "Decimal string; never a binary JSON floating point value"
+          }
+        },
+        "required": [
+          "month",
+          "opening",
+          "annualRatePercent",
+          "indexLevel",
+          "indexation",
+          "interestAccrued",
+          "capitalizedInterest",
+          "interestPaid",
+          "principalPaid",
+          "extraPrincipal",
+          "fee",
+          "payment",
+          "closing"
+        ]
+      },
+      "Summary": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "months": {
+            "type": "integer"
+          },
+          "firstPayment": {
+            "type": "string",
+            "pattern": "^-?[0-9]+(\\.[0-9]+)?$",
+            "description": "Decimal string; never a binary JSON floating point value"
+          },
+          "peakPayment": {
+            "type": "string",
+            "pattern": "^-?[0-9]+(\\.[0-9]+)?$",
+            "description": "Decimal string; never a binary JSON floating point value"
+          },
+          "totalPaid": {
+            "type": "string",
+            "pattern": "^-?[0-9]+(\\.[0-9]+)?$",
+            "description": "Decimal string; never a binary JSON floating point value"
+          },
+          "interestPaid": {
+            "type": "string",
+            "pattern": "^-?[0-9]+(\\.[0-9]+)?$",
+            "description": "Decimal string; never a binary JSON floating point value"
+          },
+          "capitalizedInterest": {
+            "type": "string",
+            "pattern": "^-?[0-9]+(\\.[0-9]+)?$",
+            "description": "Decimal string; never a binary JSON floating point value"
+          },
+          "indexation": {
+            "type": "string",
+            "pattern": "^-?[0-9]+(\\.[0-9]+)?$",
+            "description": "Decimal string; never a binary JSON floating point value"
+          },
+          "totalFees": {
+            "type": "string",
+            "pattern": "^-?[0-9]+(\\.[0-9]+)?$",
+            "description": "Decimal string; never a binary JSON floating point value"
+          },
+          "costAbovePrincipal": {
+            "type": "string",
+            "pattern": "^-?[0-9]+(\\.[0-9]+)?$",
+            "description": "Decimal string; never a binary JSON floating point value"
+          },
+          "closingBalance": {
+            "type": "string",
+            "pattern": "^-?[0-9]+(\\.[0-9]+)?$",
+            "description": "Decimal string; never a binary JSON floating point value"
+          },
+          "npv": {
+            "type": "string",
+            "pattern": "^-?[0-9]+(\\.[0-9]+)?$",
+            "description": "Decimal string; never a binary JSON floating point value"
+          },
+          "monthly": {
+            "type": "string",
+            "pattern": "^-?[0-9]+(\\.[0-9]+)?$",
+            "description": "Decimal string; never a binary JSON floating point value"
+          },
+          "annualEffectivePercent": {
+            "type": "string",
+            "pattern": "^-?[0-9]+(\\.[0-9]+)?$",
+            "description": "Decimal string; never a binary JSON floating point value"
+          }
+        },
+        "required": [
+          "months",
+          "firstPayment",
+          "peakPayment",
+          "totalPaid",
+          "interestPaid",
+          "capitalizedInterest",
+          "indexation",
+          "totalFees",
+          "costAbovePrincipal",
+          "closingBalance",
+          "npv",
+          "monthly",
+          "annualEffectivePercent"
+        ]
+      },
+      "Evidence": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "observationId": {
+            "type": "string"
+          },
+          "documentId": {
+            "type": "string"
+          },
+          "sha256": {
+            "type": "string"
+          },
+          "role": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "observationId",
+          "documentId",
+          "sha256",
+          "role"
+        ]
+      },
+      "SimulationResult": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "engineVersion": {
+            "type": "string"
+          },
+          "schemaVersion": {
+            "const": "1"
+          },
+          "currency": {
+            "const": "ILS"
+          },
+          "conventions": {
+            "type": "object"
+          },
+          "inputDeclaration": {
+            "type": "object"
+          },
+          "summary": {
+            "$ref": "#/components/schemas/Summary"
+          },
+          "warnings": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "rows": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CashflowRow"
+            }
+          },
+          "dataEvidence": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Evidence"
+            }
+          },
+          "personalPricingEnabled": {
+            "const": false
+          }
+        },
+        "required": [
+          "id",
+          "engineVersion",
+          "schemaVersion",
+          "currency",
+          "conventions",
+          "inputDeclaration",
+          "summary",
+          "warnings",
+          "rows",
+          "dataEvidence",
+          "personalPricingEnabled"
+        ]
+      },
+      "Coverage": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "sources": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "source_id": {
+                  "type": "string"
+                },
+                "series": {
+                  "type": "integer"
+                },
+                "observations": {
+                  "type": "integer"
+                },
+                "first_period": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "last_period": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "missing": {
+                  "type": "integer"
+                },
+                "invalid": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "source_id",
+                "series",
+                "observations",
+                "first_period",
+                "last_period",
+                "missing",
+                "invalid"
+              ]
+            }
+          },
+          "issues": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          },
+          "coverageIsComplete": {
+            "const": false
+          },
+          "personalPricingEnabled": {
+            "const": false
+          }
+        },
+        "required": [
+          "sources",
+          "issues",
+          "coverageIsComplete",
+          "personalPricingEnabled"
+        ]
+      },
+      "Curve": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "asOf": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "vintage": {
+            "type": "string",
+            "format": "date"
+          },
+          "averaging": {
+            "enum": [
+              "calendar",
+              "index_period"
+            ]
+          },
+          "valueClass": {
+            "const": "market_model"
+          },
+          "availabilityPolicy": {
+            "const": "captured_and_ingested_by_asOf"
+          },
+          "nominal": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Observation"
+            },
+            "minItems": 360,
+            "maxItems": 360
+          },
+          "real": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Observation"
+            },
+            "minItems": 360,
+            "maxItems": 360
+          },
+          "index": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Observation"
+            },
+            "minItems": 361,
+            "maxItems": 361
+          }
+        },
+        "required": [
+          "asOf",
+          "vintage",
+          "averaging",
+          "valueClass",
+          "availabilityPolicy",
+          "nominal",
+          "real",
+          "index"
+        ]
+      }
+    }
+  }
+}

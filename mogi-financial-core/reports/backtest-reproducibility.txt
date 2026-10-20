@@ -1,0 +1,109 @@
+Running fixed_unlinked: primary
+Running fixed_unlinked: delayed-publication sensitivity
+Running fixed_linked: primary
+Running fixed_linked: delayed-publication sensitivity
+{
+  "path": "/Users/eylon/Documents/Codex/2026-10-07/canva/mogi-financial-core/research/forecast/runs/15d8564f34b0c79554bfb419cf133ba2d3366276daa00b2eba0d3086a4d69481/result.json",
+  "scores": {
+    "fixed_unlinked": {
+      "1": {
+        "n": 24,
+        "maeBp": 7.198837419829054,
+        "rmseBp": 10.673519247378263,
+        "biasBp": 2.0380886236978273,
+        "medianAbsoluteErrorBp": 2.6149129319245734,
+        "p90AbsoluteErrorBp": 20.285360281632936,
+        "baselineMaeBp": 5.8749999999999964,
+        "improvementPercent": -22.53340289070738,
+        "within10BpPercent": 70.83333333333334,
+        "within25BpPercent": 95.83333333333334,
+        "directionAccuracyPercent": 45.0,
+        "directionSampleSize": 20,
+        "intervalCoveragePercent": 100.0,
+        "meanIntervalWidthBp": 70.70470972130974
+      },
+      "3": {
+        "n": 24,
+        "maeBp": 8.8541666666667,
+        "rmseBp": 10.389687283641045,
+        "biasBp": 2.28472222222222,
+        "medianAbsoluteErrorBp": 9.750000000000059,
+        "p90AbsoluteErrorBp": 15.183333333333325,
+        "baselineMaeBp": 8.875000000000007,
+        "improvementPercent": 0.2347417840372623,
+        "within10BpPercent": 54.166666666666664,
+        "within25BpPercent": 100.0,
+        "directionAccuracyPercent": 66.66666666666666,
+        "directionSampleSize": 21,
+        "intervalCoveragePercent": 100.0,
+        "meanIntervalWidthBp": 206.295054082267
+      },
+      "6": {
+        "n": 24,
+        "maeBp": 9.309860858722192,
+        "rmseBp": 10.53058271428391,
+        "biasBp": 4.657895433632708,
+        "medianAbsoluteErrorBp": 8.81218346750181,
+        "p90AbsoluteErrorBp": 14.082420941268472,
+        "baselineMaeBp": 11.916666666666677,
+        "improvementPercent": 21.87529349324041,
+        "within10BpPercent": 58.333333333333336,
+        "within25BpPercent": 100.0,
+        "directionAccuracyPercent": 77.27272727272727,
+        "directionSampleSize": 22,
+        "intervalCoveragePercent": 100.0,
+        "meanIntervalWidthBp": 296.0
+      }
+    },
+    "fixed_linked": {
+      "1": {
+        "n": 24,
+        "maeBp": 7.728102305425529,
+        "rmseBp": 9.461571468938237,
+        "biasBp": -0.9002228402345769,
+        "medianAbsoluteErrorBp": 6.614126365021011,
+        "p90AbsoluteErrorBp": 14.143661702752963,
+        "baselineMaeBp": 10.000000000000009,
+        "improvementPercent": 22.718976945744775,
+        "within10BpPercent": 66.66666666666666,
+        "within25BpPercent": 100.0,
+        "directionAccuracyPercent": 78.26086956521739,
+        "directionSampleSize": 23,
+        "intervalCoveragePercent": 100.0,
+        "meanIntervalWidthBp": 43.20725962985019
+      },
+      "3": {
+        "n": 24,
+        "maeBp": 9.874287360646685,
+        "rmseBp": 12.936204639559682,
+        "biasBp": -4.660298979893942,
+        "medianAbsoluteErrorBp": 7.891465296182543,
+        "p90AbsoluteErrorBp": 18.95753551456456,
+        "baselineMaeBp": 12.166666666666671,
+        "improvementPercent": 18.841473748109472,
+        "within10BpPercent": 66.66666666666666,
+        "within25BpPercent": 95.83333333333334,
+        "directionAccuracyPercent": 73.91304347826086,
+        "directionSampleSize": 23,
+        "intervalCoveragePercent": 100.0,
+        "meanIntervalWidthBp": 99.79928336590065
+      },
+      "6": {
+        "n": 24,
+        "maeBp": 21.2638888888889,
+        "rmseBp": 27.360843202298092,
+        "biasBp": -5.319444444444453,
+        "medianAbsoluteErrorBp": 16.83333333333332,
+        "p90AbsoluteErrorBp": 45.766666666666715,
+        "baselineMaeBp": 13.375,
+        "improvementPercent": -58.9823468328142,
+        "within10BpPercent": 37.5,
+        "within25BpPercent": 62.5,
+        "directionAccuracyPercent": 50.0,
+        "directionSampleSize": 24,
+        "intervalCoveragePercent": 100.0,
+        "meanIntervalWidthBp": 169.5695826117966
+      }
+    }
+  }
+}

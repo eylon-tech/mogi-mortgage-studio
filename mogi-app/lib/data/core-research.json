@@ -1,0 +1,2405 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-10-08T16:18:29.391301+00:00",
+  "datasetSha256": "849d7f2f7c3de2164a41f88268095fe2b9d9d0e1bd33bec6548c083d4481b23d",
+  "resultSha256": "a38ed89e6f964fe0b7d295f3498a90abb336892d27769c453135d6d67a5d1daa",
+  "protocolSha256": "403045f66a401202d6c0ad38d065247a963d044a9fb5afd4446f91c6df05cac7",
+  "pointInTimeVerified": false,
+  "personalPricingEnabled": false,
+  "applicationMode": "explicit_market_sensitivity_only",
+  "rateConvention": "effective_annual_percent",
+  "rateConventionEvidence": {
+    "url": "https://boi.org.il/media/hc5dirbv/877.pdf",
+    "section": "9",
+    "sha256": "d5667f935f76353a964412d4b13d45ba2431960e15551ea85acbe8b7bb7b1072",
+    "note": "Supplemental verified convention; original backtest artifact is unchanged."
+  },
+  "holdoutOriginStart": "2024-03",
+  "holdoutOriginEnd": "2026-02",
+  "historyStart": "2011-07",
+  "historyEnd": "2026-08",
+  "targetLagMonths": 2,
+  "macroLagMonths": 1,
+  "bankLevelAssessment": {
+    "status": "insufficient_history_for_this_protocol",
+    "monthsAvailable": 25,
+    "banks": 8,
+    "reason": "The 48-row training minimum, 24-error validation and 24-origin holdout cannot be met. No synthetic earlier bank history is inserted."
+  },
+  "forecasts": [
+    {
+      "id": "fixed_unlinked-1",
+      "track": "fixed",
+      "horizon": 1,
+      "origin": "2026-09",
+      "targetMonth": "2026-10",
+      "baselineMonth": "2026-07",
+      "baseline": 4.63,
+      "prediction": 4.607435079973445,
+      "lower90": 4.253911531366897,
+      "upper90": 4.960958628579994,
+      "lockedCandidate": "ridge/curve/wall/a10/blend0.5",
+      "lockedAt": "2024-03",
+      "metrics": {
+        "n": 24,
+        "maeBp": 7.198837419829054,
+        "rmseBp": 10.673519247378263,
+        "biasBp": 2.0380886236978273,
+        "medianAbsoluteErrorBp": 2.6149129319245734,
+        "p90AbsoluteErrorBp": 20.285360281632936,
+        "baselineMaeBp": 5.8749999999999964,
+        "improvementPercent": -22.53340289070738,
+        "within10BpPercent": 70.83333333333334,
+        "within25BpPercent": 95.83333333333334,
+        "directionAccuracyPercent": 45.0,
+        "directionSampleSize": 20,
+        "intervalCoveragePercent": 100.0,
+        "meanIntervalWidthBp": 70.70470972130974
+      },
+      "sensitivityMetrics": {
+        "n": 24,
+        "maeBp": 12.438548630694195,
+        "rmseBp": 16.79821185618464,
+        "biasBp": 4.561673011277486,
+        "medianAbsoluteErrorBp": 7.843382721908032,
+        "p90AbsoluteErrorBp": 31.95865805487088,
+        "baselineMaeBp": 7.916666666666676,
+        "improvementPercent": -57.11850901929492,
+        "within10BpPercent": 54.166666666666664,
+        "within25BpPercent": 87.5,
+        "directionAccuracyPercent": 42.857142857142854,
+        "directionSampleSize": 21,
+        "intervalCoveragePercent": 100.0,
+        "meanIntervalWidthBp": 168.90845981490958
+      },
+      "pairedImprovementInterval": {
+        "quantity": "baseline_MAE_minus_model_MAE_bp",
+        "mean": -1.3238374198290586,
+        "lower95": -5.068616345531278,
+        "upper95": 2.8650312545749954,
+        "blockMonths": 6,
+        "replicates": 2000,
+        "smallSampleWarning": true
+      },
+      "forecastAudit": {
+        "trainingRows": 166,
+        "lastTrainingOrigin": "2026-06",
+        "lastTrainingTargetMonth": "2026-07",
+        "lastTrainingLabelAvailableMonth": "2026-09",
+        "scalerFittedThroughOrigin": "2026-06"
+      },
+      "featureAudit": {
+        "origin": 24320,
+        "lastTargetMonth": 24318,
+        "lastMacroMonth": 24319,
+        "maxAssumedAvailableMonth": 24320,
+        "references": [
+          {
+            "code": "BNK_99034_LR_BIR_MRTG_467",
+            "period": "2025-07",
+            "assumedAvailableMonth": "2025-09"
+          },
+          {
+            "code": "BNK_99034_LR_BIR_MRTG_467",
+            "period": "2026-01",
+            "assumedAvailableMonth": "2026-03"
+          },
+          {
+            "code": "BNK_99034_LR_BIR_MRTG_467",
+            "period": "2026-04",
+            "assumedAvailableMonth": "2026-06"
+          },
+          {
+            "code": "BNK_99034_LR_BIR_MRTG_467",
+            "period": "2026-06",
+            "assumedAvailableMonth": "2026-08"
+          },
+          {
+            "code": "BNK_99034_LR_BIR_MRTG_467",
+            "period": "2026-07",
+            "assumedAvailableMonth": "2026-09"
+          },
+          {
+            "code": "EXP_EXP_01Y_BI_MA",
+            "period": "2026-05",
+            "assumedAvailableMonth": "2026-06"
+          },
+          {
+            "code": "EXP_EXP_01Y_BI_MA",
+            "period": "2026-08",
+            "assumedAvailableMonth": "2026-09"
+          },
+          {
+            "code": "MNT_RIB_BOI_D",
+            "period": "2025-08",
+            "assumedAvailableMonth": "2025-09"
+          },
+          {
+            "code": "MNT_RIB_BOI_D",
+            "period": "2026-05",
+            "assumedAvailableMonth": "2026-06"
+          },
+          {
+            "code": "MNT_RIB_BOI_D",
+            "period": "2026-07",
+            "assumedAvailableMonth": "2026-08"
+          },
+          {
+            "code": "MNT_RIB_BOI_D",
+            "period": "2026-08",
+            "assumedAvailableMonth": "2026-09"
+          },
+          {
+            "code": "ZC_TSB_ZND_01Y_MA",
+            "period": "2026-08",
+            "assumedAvailableMonth": "2026-09"
+          },
+          {
+            "code": "ZC_TSB_ZND_05Y_MA",
+            "period": "2026-05",
+            "assumedAvailableMonth": "2026-06"
+          },
+          {
+            "code": "ZC_TSB_ZND_05Y_MA",
+            "period": "2026-07",
+            "assumedAvailableMonth": "2026-08"
+          },
+          {
+            "code": "ZC_TSB_ZND_05Y_MA",
+            "period": "2026-08",
+            "assumedAvailableMonth": "2026-09"
+          },
+          {
+            "code": "ZC_TSB_ZND_10Y_MA",
+            "period": "2026-08",
+            "assumedAvailableMonth": "2026-09"
+          },
+          {
+            "code": "ZC_TSB_ZRD_01Y_MA",
+            "period": "2026-08",
+            "assumedAvailableMonth": "2026-09"
+          },
+          {
+            "code": "ZC_TSB_ZRD_05Y_MA",
+            "period": "2026-05",
+            "assumedAvailableMonth": "2026-06"
+          },
+          {
+            "code": "ZC_TSB_ZRD_05Y_MA",
+            "period": "2026-07",
+            "assumedAvailableMonth": "2026-08"
+          },
+          {
+            "code": "ZC_TSB_ZRD_05Y_MA",
+            "period": "2026-08",
+            "assumedAvailableMonth": "2026-09"
+          },
+          {
+            "code": "ZC_TSB_ZRD_10Y_MA",
+            "period": "2026-08",
+            "assumedAvailableMonth": "2026-09"
+          },
+          {
+            "code": "percentYear",
+            "period": "2026-05",
+            "assumedAvailableMonth": "2026-06"
+          },
+          {
+            "code": "percentYear",
+            "period": "2026-08",
+            "assumedAvailableMonth": "2026-09"
+          }
+        ]
+      },
+      "contributions": [
+        {
+          "feature": "rate_level",
+          "contributionBp": -3.3338169782419476
+        },
+        {
+          "feature": "rate_change_1",
+          "contributionBp": -0.888432578084081
+        },
+        {
+          "feature": "rate_change_3",
+          "contributionBp": -0.7253854156985318
+        },
+        {
+          "feature": "rate_change_6",
+          "contributionBp": -0.24021244195881866
+        },
+        {
+          "feature": "rate_change_12",
+          "contributionBp": -0.3400964035724151
+        },
+        {
+          "feature": "nominal5_gap",
+          "contributionBp": 1.9490282881799985
+        },
+        {
+          "feature": "real5_gap",
+          "contributionBp": 3.1903366681523853
+        },
+        {
+          "feature": "nominal_slope",
+          "contributionBp": -0.5644589864056743
+        },
+        {
+          "feature": "real_slope",
+          "contributionBp": -0.17355414075423117
+        },
+        {
+          "feature": "nominal5_change_1",
+          "contributionBp": 0.624575432883549
+        },
+        {
+          "feature": "nominal5_change_3",
+          "contributionBp": -1.25141349306118
+        },
+        {
+          "feature": "real5_change_1",
+          "contributionBp": 0.367893876746968
+        },
+        {
+          "feature": "real5_change_3",
+          "contributionBp": -0.0909249248396185
+        },
+        {
+          "feature": "inflation_expected",
+          "contributionBp": -0.1031145615536561
+        },
+        {
+          "feature": "inflation_expected_change_3",
+          "contributionBp": -0.6980006817975928
+        },
+        {
+          "feature": "training_intercept",
+          "contributionBp": 0.021084337349397676
+        }
+      ],
+      "holdout": [
+        {
+          "origin": "2024-03",
+          "targetMonth": "2024-04",
+          "prediction": 5.028390955238089,
+          "actual": 5.01,
+          "baseline": 5.06
+        },
+        {
+          "origin": "2024-04",
+          "targetMonth": "2024-05",
+          "prediction": 5.047694805221252,
+          "actual": 4.98,
+          "baseline": 5.02
+        },
+        {
+          "origin": "2024-05",
+          "targetMonth": "2024-06",
+          "prediction": 5.164292694879165,
+          "actual": 4.95,
+          "baseline": 5.04
+        },
+        {
+          "origin": "2024-06",
+          "targetMonth": "2024-07",
+          "prediction": 5.128258220901396,
+          "actual": 4.92,
+          "baseline": 5.01
+        },
+        {
+          "origin": "2024-07",
+          "targetMonth": "2024-08",
+          "prediction": 5.114724923737128,
+          "actual": 4.86,
+          "baseline": 4.98
+        },
+        {
+          "origin": "2024-08",
+          "targetMonth": "2024-09",
+          "prediction": 4.970456838930133,
+          "actual": 4.81,
+          "baseline": 4.95
+        },
+        {
+          "origin": "2024-09",
+          "targetMonth": "2024-10",
+          "prediction": 4.867035815613158,
+          "actual": 4.85,
+          "baseline": 4.92
+        },
+        {
+          "origin": "2024-10",
+          "targetMonth": "2024-11",
+          "prediction": 4.859662228851401,
+          "actual": 4.88,
+          "baseline": 4.86
+        },
+        {
+          "origin": "2024-11",
+          "targetMonth": "2024-12",
+          "prediction": 4.825410710832174,
+          "actual": 4.81,
+          "baseline": 4.81
+        },
+        {
+          "origin": "2024-12",
+          "targetMonth": "2025-01",
+          "prediction": 4.825136112817259,
+          "actual": 4.89,
+          "baseline": 4.85
+        },
+        {
+          "origin": "2025-01",
+          "targetMonth": "2025-02",
+          "prediction": 4.755458689590052,
+          "actual": 4.92,
+          "baseline": 4.88
+        },
+        {
+          "origin": "2025-02",
+          "targetMonth": "2025-03",
+          "prediction": 4.719757172715492,
+          "actual": 4.91,
+          "baseline": 4.81
+        },
+        {
+          "origin": "2025-03",
+          "targetMonth": "2025-04",
+          "prediction": 4.787172719016706,
+          "actual": 4.91,
+          "baseline": 4.89
+        },
+        {
+          "origin": "2025-04",
+          "targetMonth": "2025-05",
+          "prediction": 4.904758427103515,
+          "actual": 4.91,
+          "baseline": 4.92
+        },
+        {
+          "origin": "2025-05",
+          "targetMonth": "2025-06",
+          "prediction": 4.907040624925569,
+          "actual": 4.93,
+          "baseline": 4.91
+        },
+        {
+          "origin": "2025-06",
+          "targetMonth": "2025-07",
+          "prediction": 4.937919841364922,
+          "actual": 4.92,
+          "baseline": 4.91
+        },
+        {
+          "origin": "2025-07",
+          "targetMonth": "2025-08",
+          "prediction": 4.93168176771634,
+          "actual": 4.9,
+          "baseline": 4.91
+        },
+        {
+          "origin": "2025-08",
+          "targetMonth": "2025-09",
+          "prediction": 4.852898604174563,
+          "actual": 4.88,
+          "baseline": 4.93
+        },
+        {
+          "origin": "2025-09",
+          "targetMonth": "2025-10",
+          "prediction": 4.871906241447608,
+          "actual": 4.85,
+          "baseline": 4.92
+        },
+        {
+          "origin": "2025-10",
+          "targetMonth": "2025-11",
+          "prediction": 4.835196862813055,
+          "actual": 4.81,
+          "baseline": 4.9
+        },
+        {
+          "origin": "2025-11",
+          "targetMonth": "2025-12",
+          "prediction": 4.77856872803222,
+          "actual": 4.77,
+          "baseline": 4.88
+        },
+        {
+          "origin": "2025-12",
+          "targetMonth": "2026-01",
+          "prediction": 4.788825565269694,
+          "actual": 4.79,
+          "baseline": 4.85
+        },
+        {
+          "origin": "2026-01",
+          "targetMonth": "2026-02",
+          "prediction": 4.772623343838631,
+          "actual": 4.74,
+          "baseline": 4.81
+        },
+        {
+          "origin": "2026-02",
+          "targetMonth": "2026-03",
+          "prediction": 4.694269374657954,
+          "actual": 4.68,
+          "baseline": 4.77
+        }
+      ]
+    },
+    {
+      "id": "fixed_unlinked-3",
+      "track": "fixed",
+      "horizon": 3,
+      "origin": "2026-09",
+      "targetMonth": "2026-12",
+      "baselineMonth": "2026-07",
+      "baseline": 4.63,
+      "prediction": 4.538333333333333,
+      "lower90": 3.506858062921998,
+      "upper90": 5.569808603744669,
+      "lockedCandidate": "damped_momentum",
+      "lockedAt": "2024-03",
+      "metrics": {
+        "n": 24,
+        "maeBp": 8.8541666666667,
+        "rmseBp": 10.389687283641045,
+        "biasBp": 2.28472222222222,
+        "medianAbsoluteErrorBp": 9.750000000000059,
+        "p90AbsoluteErrorBp": 15.183333333333325,
+        "baselineMaeBp": 8.875000000000007,
+        "improvementPercent": 0.2347417840372623,
+        "within10BpPercent": 54.166666666666664,
+        "within25BpPercent": 100.0,
+        "directionAccuracyPercent": 66.66666666666666,
+        "directionSampleSize": 21,
+        "intervalCoveragePercent": 100.0,
+        "meanIntervalWidthBp": 206.295054082267
+      },
+      "sensitivityMetrics": {
+        "n": 24,
+        "maeBp": 11.000000000000028,
+        "rmseBp": 12.685293322058708,
+        "biasBp": 3.8333333333333295,
+        "medianAbsoluteErrorBp": 11.500000000000021,
+        "p90AbsoluteErrorBp": 17.99999999999997,
+        "baselineMaeBp": 10.583333333333345,
+        "improvementPercent": -3.9370078740158965,
+        "within10BpPercent": 45.83333333333333,
+        "within25BpPercent": 100.0,
+        "directionAccuracyPercent": 58.333333333333336,
+        "directionSampleSize": 24,
+        "intervalCoveragePercent": 100.0,
+        "meanIntervalWidthBp": 233.50050954910907
+      },
+      "pairedImprovementInterval": {
+        "quantity": "baseline_MAE_minus_model_MAE_bp",
+        "mean": 0.020833333333306985,
+        "lower95": -2.055555555555577,
+        "upper95": 2.306423611111074,
+        "blockMonths": 6,
+        "replicates": 2000,
+        "smallSampleWarning": true
+      },
+      "forecastAudit": {
+        "trainingRows": 164,
+        "lastTrainingOrigin": "2026-04",
+        "lastTrainingTargetMonth": "2026-07",
+        "lastTrainingLabelAvailableMonth": "2026-09"
+      },
+      "featureAudit": {
+        "origin": 24320,
+        "lastTargetMonth": 24318,
+        "lastMacroMonth": 24319,
+        "maxAssumedAvailableMonth": 24320,
+        "references": [
+          {
+            "code": "BNK_99034_LR_BIR_MRTG_467",
+            "period": "2025-07",
+            "assumedAvailableMonth": "2025-09"
+          },
+          {
+            "code": "BNK_99034_LR_BIR_MRTG_467",
+            "period": "2026-01",
+            "assumedAvailableMonth": "2026-03"
+          },
+          {
+            "code": "BNK_99034_LR_BIR_MRTG_467",
+            "period": "2026-04",
+            "assumedAvailableMonth": "2026-06"
+          },
+          {
+            "code": "BNK_99034_LR_BIR_MRTG_467",
+            "period": "2026-06",
+            "assumedAvailableMonth": "2026-08"
+          },
+          {
+            "code": "BNK_99034_LR_BIR_MRTG_467",
+            "period": "2026-07",
+            "assumedAvailableMonth": "2026-09"
+          },
+          {
+            "code": "EXP_EXP_01Y_BI_MA",
+            "period": "2026-05",
+            "assumedAvailableMonth": "2026-06"
+          },
+          {
+            "code": "EXP_EXP_01Y_BI_MA",
+            "period": "2026-08",
+            "assumedAvailableMonth": "2026-09"
+          },
+          {
+            "code": "MNT_RIB_BOI_D",
+            "period": "2025-08",
+            "assumedAvailableMonth": "2025-09"
+          },
+          {
+            "code": "MNT_RIB_BOI_D",
+            "period": "2026-05",
+            "assumedAvailableMonth": "2026-06"
+          },
+          {
+            "code": "MNT_RIB_BOI_D",
+            "period": "2026-07",
+            "assumedAvailableMonth": "2026-08"
+          },
+          {
+            "code": "MNT_RIB_BOI_D",
+            "period": "2026-08",
+            "assumedAvailableMonth": "2026-09"
+          },
+          {
+            "code": "ZC_TSB_ZND_01Y_MA",
+            "period": "2026-08",
+            "assumedAvailableMonth": "2026-09"
+          },
+          {
+            "code": "ZC_TSB_ZND_05Y_MA",
+            "period": "2026-05",
+            "assumedAvailableMonth": "2026-06"
+          },
+          {
+            "code": "ZC_TSB_ZND_05Y_MA",
+            "period": "2026-07",
+            "assumedAvailableMonth": "2026-08"
+          },
+          {
+            "code": "ZC_TSB_ZND_05Y_MA",
+            "period": "2026-08",
+            "assumedAvailableMonth": "2026-09"
+          },
+          {
+            "code": "ZC_TSB_ZND_10Y_MA",
+            "period": "2026-08",
+            "assumedAvailableMonth": "2026-09"
+          },
+          {
+            "code": "ZC_TSB_ZRD_01Y_MA",
+            "period": "2026-08",
+            "assumedAvailableMonth": "2026-09"
+          },
+          {
+            "code": "ZC_TSB_ZRD_05Y_MA",
+            "period": "2026-05",
+            "assumedAvailableMonth": "2026-06"
+          },
+          {
+            "code": "ZC_TSB_ZRD_05Y_MA",
+            "period": "2026-07",
+            "assumedAvailableMonth": "2026-08"
+          },
+          {
+            "code": "ZC_TSB_ZRD_05Y_MA",
+            "period": "2026-08",
+            "assumedAvailableMonth": "2026-09"
+          },
+          {
+            "code": "ZC_TSB_ZRD_10Y_MA",
+            "period": "2026-08",
+            "assumedAvailableMonth": "2026-09"
+          },
+          {
+            "code": "percentYear",
+            "period": "2026-05",
+            "assumedAvailableMonth": "2026-06"
+          },
+          {
+            "code": "percentYear",
+            "period": "2026-08",
+            "assumedAvailableMonth": "2026-09"
+          }
+        ]
+      },
+      "contributions": [],
+      "holdout": [
+        {
+          "origin": "2024-03",
+          "targetMonth": "2024-06",
+          "prediction": 5.051666666666666,
+          "actual": 4.95,
+          "baseline": 5.06
+        },
+        {
+          "origin": "2024-04",
+          "targetMonth": "2024-07",
+          "prediction": 4.828333333333332,
+          "actual": 4.92,
+          "baseline": 5.02
+        },
+        {
+          "origin": "2024-05",
+          "targetMonth": "2024-08",
+          "prediction": 4.973333333333334,
+          "actual": 4.86,
+          "baseline": 5.04
+        },
+        {
+          "origin": "2024-06",
+          "targetMonth": "2024-09",
+          "prediction": 4.968333333333334,
+          "actual": 4.81,
+          "baseline": 5.01
+        },
+        {
+          "origin": "2024-07",
+          "targetMonth": "2024-10",
+          "prediction": 4.946666666666668,
+          "actual": 4.85,
+          "baseline": 4.98
+        },
+        {
+          "origin": "2024-08",
+          "targetMonth": "2024-11",
+          "prediction": 4.875,
+          "actual": 4.88,
+          "baseline": 4.95
+        },
+        {
+          "origin": "2024-09",
+          "targetMonth": "2024-12",
+          "prediction": 4.845,
+          "actual": 4.81,
+          "baseline": 4.92
+        },
+        {
+          "origin": "2024-10",
+          "targetMonth": "2025-01",
+          "prediction": 4.76,
+          "actual": 4.89,
+          "baseline": 4.86
+        },
+        {
+          "origin": "2024-11",
+          "targetMonth": "2025-02",
+          "prediction": 4.6933333333333325,
+          "actual": 4.92,
+          "baseline": 4.81
+        },
+        {
+          "origin": "2024-12",
+          "targetMonth": "2025-03",
+          "prediction": 4.791666666666666,
+          "actual": 4.91,
+          "baseline": 4.85
+        },
+        {
+          "origin": "2025-01",
+          "targetMonth": "2025-04",
+          "prediction": 4.8966666666666665,
+          "actual": 4.91,
+          "baseline": 4.88
+        },
+        {
+          "origin": "2025-02",
+          "targetMonth": "2025-05",
+          "prediction": 4.81,
+          "actual": 4.91,
+          "baseline": 4.81
+        },
+        {
+          "origin": "2025-03",
+          "targetMonth": "2025-06",
+          "prediction": 4.923333333333333,
+          "actual": 4.93,
+          "baseline": 4.89
+        },
+        {
+          "origin": "2025-04",
+          "targetMonth": "2025-07",
+          "prediction": 4.953333333333333,
+          "actual": 4.92,
+          "baseline": 4.92
+        },
+        {
+          "origin": "2025-05",
+          "targetMonth": "2025-08",
+          "prediction": 4.993333333333334,
+          "actual": 4.9,
+          "baseline": 4.91
+        },
+        {
+          "origin": "2025-06",
+          "targetMonth": "2025-09",
+          "prediction": 4.926666666666668,
+          "actual": 4.88,
+          "baseline": 4.91
+        },
+        {
+          "origin": "2025-07",
+          "targetMonth": "2025-10",
+          "prediction": 4.901666666666667,
+          "actual": 4.85,
+          "baseline": 4.91
+        },
+        {
+          "origin": "2025-08",
+          "targetMonth": "2025-11",
+          "prediction": 4.946666666666666,
+          "actual": 4.81,
+          "baseline": 4.93
+        },
+        {
+          "origin": "2025-09",
+          "targetMonth": "2025-12",
+          "prediction": 4.928333333333333,
+          "actual": 4.77,
+          "baseline": 4.92
+        },
+        {
+          "origin": "2025-10",
+          "targetMonth": "2026-01",
+          "prediction": 4.8916666666666675,
+          "actual": 4.79,
+          "baseline": 4.9
+        },
+        {
+          "origin": "2025-11",
+          "targetMonth": "2026-02",
+          "prediction": 4.838333333333333,
+          "actual": 4.74,
+          "baseline": 4.88
+        },
+        {
+          "origin": "2025-12",
+          "targetMonth": "2026-03",
+          "prediction": 4.791666666666666,
+          "actual": 4.68,
+          "baseline": 4.85
+        },
+        {
+          "origin": "2026-01",
+          "targetMonth": "2026-04",
+          "prediction": 4.734999999999999,
+          "actual": 4.74,
+          "baseline": 4.81
+        },
+        {
+          "origin": "2026-02",
+          "targetMonth": "2026-05",
+          "prediction": 4.678333333333333,
+          "actual": 4.77,
+          "baseline": 4.77
+        }
+      ]
+    },
+    {
+      "id": "fixed_unlinked-6",
+      "track": "fixed",
+      "horizon": 6,
+      "origin": "2026-09",
+      "targetMonth": "2027-03",
+      "baselineMonth": "2026-07",
+      "baseline": 4.63,
+      "prediction": 4.535904780552352,
+      "lower90": 3.055904780552352,
+      "upper90": 6.0159047805523524,
+      "lockedCandidate": "ridge/policy/w120/a100/blend0.5",
+      "lockedAt": "2024-03",
+      "metrics": {
+        "n": 24,
+        "maeBp": 9.309860858722192,
+        "rmseBp": 10.53058271428391,
+        "biasBp": 4.657895433632708,
+        "medianAbsoluteErrorBp": 8.81218346750181,
+        "p90AbsoluteErrorBp": 14.082420941268472,
+        "baselineMaeBp": 11.916666666666677,
+        "improvementPercent": 21.87529349324041,
+        "within10BpPercent": 58.333333333333336,
+        "within25BpPercent": 100.0,
+        "directionAccuracyPercent": 77.27272727272727,
+        "directionSampleSize": 22,
+        "intervalCoveragePercent": 100.0,
+        "meanIntervalWidthBp": 296.0
+      },
+      "sensitivityMetrics": {
+        "n": 24,
+        "maeBp": 9.431361315851076,
+        "rmseBp": 11.15573294106443,
+        "biasBp": 5.151134945418335,
+        "medianAbsoluteErrorBp": 10.056410205887412,
+        "p90AbsoluteErrorBp": 15.853809720953764,
+        "baselineMaeBp": 13.125000000000009,
+        "improvementPercent": 28.142009022087088,
+        "within10BpPercent": 45.83333333333333,
+        "within25BpPercent": 100.0,
+        "directionAccuracyPercent": 73.91304347826086,
+        "directionSampleSize": 23,
+        "intervalCoveragePercent": 100.0,
+        "meanIntervalWidthBp": 320.0000000000001
+      },
+      "pairedImprovementInterval": {
+        "quantity": "baseline_MAE_minus_model_MAE_bp",
+        "mean": 2.6068058079444825,
+        "lower95": -0.7058077587718925,
+        "upper95": 6.616873003361666,
+        "blockMonths": 8,
+        "replicates": 2000,
+        "smallSampleWarning": true
+      },
+      "forecastAudit": {
+        "trainingRows": 113,
+        "lastTrainingOrigin": "2026-01",
+        "lastTrainingTargetMonth": "2026-07",
+        "lastTrainingLabelAvailableMonth": "2026-09",
+        "scalerFittedThroughOrigin": "2026-01"
+      },
+      "featureAudit": {
+        "origin": 24320,
+        "lastTargetMonth": 24318,
+        "lastMacroMonth": 24319,
+        "maxAssumedAvailableMonth": 24320,
+        "references": [
+          {
+            "code": "BNK_99034_LR_BIR_MRTG_467",
+            "period": "2025-07",
+            "assumedAvailableMonth": "2025-09"
+          },
+          {
+            "code": "BNK_99034_LR_BIR_MRTG_467",
+            "period": "2026-01",
+            "assumedAvailableMonth": "2026-03"
+          },
+          {
+            "code": "BNK_99034_LR_BIR_MRTG_467",
+            "period": "2026-04",
+            "assumedAvailableMonth": "2026-06"
+          },
+          {
+            "code": "BNK_99034_LR_BIR_MRTG_467",
+            "period": "2026-06",
+            "assumedAvailableMonth": "2026-08"
+          },
+          {
+            "code": "BNK_99034_LR_BIR_MRTG_467",
+            "period": "2026-07",
+            "assumedAvailableMonth": "2026-09"
+          },
+          {
+            "code": "EXP_EXP_01Y_BI_MA",
+            "period": "2026-05",
+            "assumedAvailableMonth": "2026-06"
+          },
+          {
+            "code": "EXP_EXP_01Y_BI_MA",
+            "period": "2026-08",
+            "assumedAvailableMonth": "2026-09"
+          },
+          {
+            "code": "MNT_RIB_BOI_D",
+            "period": "2025-08",
+            "assumedAvailableMonth": "2025-09"
+          },
+          {
+            "code": "MNT_RIB_BOI_D",
+            "period": "2026-05",
+            "assumedAvailableMonth": "2026-06"
+          },
+          {
+            "code": "MNT_RIB_BOI_D",
+            "period": "2026-07",
+            "assumedAvailableMonth": "2026-08"
+          },
+          {
+            "code": "MNT_RIB_BOI_D",
+            "period": "2026-08",
+            "assumedAvailableMonth": "2026-09"
+          },
+          {
+            "code": "ZC_TSB_ZND_01Y_MA",
+            "period": "2026-08",
+            "assumedAvailableMonth": "2026-09"
+          },
+          {
+            "code": "ZC_TSB_ZND_05Y_MA",
+            "period": "2026-05",
+            "assumedAvailableMonth": "2026-06"
+          },
+          {
+            "code": "ZC_TSB_ZND_05Y_MA",
+            "period": "2026-07",
+            "assumedAvailableMonth": "2026-08"
+          },
+          {
+            "code": "ZC_TSB_ZND_05Y_MA",
+            "period": "2026-08",
+            "assumedAvailableMonth": "2026-09"
+          },
+          {
+            "code": "ZC_TSB_ZND_10Y_MA",
+            "period": "2026-08",
+            "assumedAvailableMonth": "2026-09"
+          },
+          {
+            "code": "ZC_TSB_ZRD_01Y_MA",
+            "period": "2026-08",
+            "assumedAvailableMonth": "2026-09"
+          },
+          {
+            "code": "ZC_TSB_ZRD_05Y_MA",
+            "period": "2026-05",
+            "assumedAvailableMonth": "2026-06"
+          },
+          {
+            "code": "ZC_TSB_ZRD_05Y_MA",
+            "period": "2026-07",
+            "assumedAvailableMonth": "2026-08"
+          },
+          {
+            "code": "ZC_TSB_ZRD_05Y_MA",
+            "period": "2026-08",
+            "assumedAvailableMonth": "2026-09"
+          },
+          {
+            "code": "ZC_TSB_ZRD_10Y_MA",
+            "period": "2026-08",
+            "assumedAvailableMonth": "2026-09"
+          },
+          {
+            "code": "percentYear",
+            "period": "2026-05",
+            "assumedAvailableMonth": "2026-06"
+          },
+          {
+            "code": "percentYear",
+            "period": "2026-08",
+            "assumedAvailableMonth": "2026-09"
+          }
+        ]
+      },
+      "contributions": [
+        {
+          "feature": "rate_level",
+          "contributionBp": -3.696992007893487
+        },
+        {
+          "feature": "rate_change_1",
+          "contributionBp": -3.6782356699042666
+        },
+        {
+          "feature": "rate_change_3",
+          "contributionBp": -1.3885031028589612
+        },
+        {
+          "feature": "rate_change_6",
+          "contributionBp": -0.4651714027126389
+        },
+        {
+          "feature": "rate_change_12",
+          "contributionBp": 0.2097956692505079
+        },
+        {
+          "feature": "policy_level",
+          "contributionBp": -0.24498965254482422
+        },
+        {
+          "feature": "policy_change_1",
+          "contributionBp": -1.6954636629469637
+        },
+        {
+          "feature": "policy_change_3",
+          "contributionBp": -1.9496014984857764
+        },
+        {
+          "feature": "policy_change_12",
+          "contributionBp": -0.1379533711308551
+        },
+        {
+          "feature": "rate_policy_gap",
+          "contributionBp": 1.9871502765863878
+        },
+        {
+          "feature": "training_intercept",
+          "contributionBp": 1.650442477876106
+        }
+      ],
+      "holdout": [
+        {
+          "origin": "2024-03",
+          "targetMonth": "2024-09",
+          "prediction": 4.91175259960765,
+          "actual": 4.81,
+          "baseline": 5.06
+        },
+        {
+          "origin": "2024-04",
+          "targetMonth": "2024-10",
+          "prediction": 4.879172597092506,
+          "actual": 4.85,
+          "baseline": 5.02
+        },
+        {
+          "origin": "2024-05",
+          "targetMonth": "2024-11",
+          "prediction": 4.962492569498725,
+          "actual": 4.88,
+          "baseline": 5.04
+        },
+        {
+          "origin": "2024-06",
+          "targetMonth": "2024-12",
+          "prediction": 4.938412188845679,
+          "actual": 4.81,
+          "baseline": 5.01
+        },
+        {
+          "origin": "2024-07",
+          "targetMonth": "2025-01",
+          "prediction": 4.917427512538572,
+          "actual": 4.89,
+          "baseline": 4.98
+        },
+        {
+          "origin": "2024-08",
+          "targetMonth": "2025-02",
+          "prediction": 4.897174467704438,
+          "actual": 4.92,
+          "baseline": 4.95
+        },
+        {
+          "origin": "2024-09",
+          "targetMonth": "2025-03",
+          "prediction": 4.86627467051267,
+          "actual": 4.91,
+          "baseline": 4.92
+        },
+        {
+          "origin": "2024-10",
+          "targetMonth": "2025-04",
+          "prediction": 4.810164144803226,
+          "actual": 4.91,
+          "baseline": 4.86
+        },
+        {
+          "origin": "2024-11",
+          "targetMonth": "2025-05",
+          "prediction": 4.769389408791356,
+          "actual": 4.91,
+          "baseline": 4.81
+        },
+        {
+          "origin": "2024-12",
+          "targetMonth": "2025-06",
+          "prediction": 4.845745482186876,
+          "actual": 4.93,
+          "baseline": 4.85
+        },
+        {
+          "origin": "2025-01",
+          "targetMonth": "2025-07",
+          "prediction": 4.876624129275081,
+          "actual": 4.92,
+          "baseline": 4.88
+        },
+        {
+          "origin": "2025-02",
+          "targetMonth": "2025-08",
+          "prediction": 4.776391845715615,
+          "actual": 4.9,
+          "baseline": 4.81
+        },
+        {
+          "origin": "2025-03",
+          "targetMonth": "2025-09",
+          "prediction": 4.899431281477524,
+          "actual": 4.88,
+          "baseline": 4.89
+        },
+        {
+          "origin": "2025-04",
+          "targetMonth": "2025-10",
+          "prediction": 4.913298962444527,
+          "actual": 4.85,
+          "baseline": 4.92
+        },
+        {
+          "origin": "2025-05",
+          "targetMonth": "2025-11",
+          "prediction": 4.897898122745736,
+          "actual": 4.81,
+          "baseline": 4.91
+        },
+        {
+          "origin": "2025-06",
+          "targetMonth": "2025-12",
+          "prediction": 4.894968641830321,
+          "actual": 4.77,
+          "baseline": 4.91
+        },
+        {
+          "origin": "2025-07",
+          "targetMonth": "2026-01",
+          "prediction": 4.893493172559431,
+          "actual": 4.79,
+          "baseline": 4.91
+        },
+        {
+          "origin": "2025-08",
+          "targetMonth": "2026-02",
+          "prediction": 4.923560157613601,
+          "actual": 4.74,
+          "baseline": 4.93
+        },
+        {
+          "origin": "2025-09",
+          "targetMonth": "2026-03",
+          "prediction": 4.901582422999888,
+          "actual": 4.68,
+          "baseline": 4.92
+        },
+        {
+          "origin": "2025-10",
+          "targetMonth": "2026-04",
+          "prediction": 4.880915760071559,
+          "actual": 4.74,
+          "baseline": 4.9
+        },
+        {
+          "origin": "2025-11",
+          "targetMonth": "2026-05",
+          "prediction": 4.8583455466042995,
+          "actual": 4.77,
+          "baseline": 4.88
+        },
+        {
+          "origin": "2025-12",
+          "targetMonth": "2026-06",
+          "prediction": 4.817340840710079,
+          "actual": 4.73,
+          "baseline": 4.85
+        },
+        {
+          "origin": "2026-01",
+          "targetMonth": "2026-07",
+          "prediction": 4.740824042722288,
+          "actual": 4.63,
+          "baseline": 4.81
+        },
+        {
+          "origin": "2026-02",
+          "targetMonth": "2026-08",
+          "prediction": 4.695214335720201,
+          "actual": 4.62,
+          "baseline": 4.77
+        }
+      ]
+    },
+    {
+      "id": "fixed_linked-1",
+      "track": "indexed",
+      "horizon": 1,
+      "origin": "2026-09",
+      "targetMonth": "2026-10",
+      "baselineMonth": "2026-07",
+      "baseline": 3.22,
+      "prediction": 3.2321904249494495,
+      "lower90": 3.0161541268001986,
+      "upper90": 3.4482267230987005,
+      "lockedCandidate": "ridge/curve/wall/a100/blend1",
+      "lockedAt": "2024-03",
+      "metrics": {
+        "n": 24,
+        "maeBp": 7.728102305425529,
+        "rmseBp": 9.461571468938237,
+        "biasBp": -0.9002228402345769,
+        "medianAbsoluteErrorBp": 6.614126365021011,
+        "p90AbsoluteErrorBp": 14.143661702752963,
+        "baselineMaeBp": 10.000000000000009,
+        "improvementPercent": 22.718976945744775,
+        "within10BpPercent": 66.66666666666666,
+        "within25BpPercent": 100.0,
+        "directionAccuracyPercent": 78.26086956521739,
+        "directionSampleSize": 23,
+        "intervalCoveragePercent": 100.0,
+        "meanIntervalWidthBp": 43.20725962985019
+      },
+      "sensitivityMetrics": {
+        "n": 24,
+        "maeBp": 9.991490746063384,
+        "rmseBp": 11.6925129386189,
+        "biasBp": -1.2112511406403494,
+        "medianAbsoluteErrorBp": 8.332762036585105,
+        "p90AbsoluteErrorBp": 19.813446221212555,
+        "baselineMaeBp": 12.666666666666677,
+        "improvementPercent": 21.119809899499664,
+        "within10BpPercent": 58.333333333333336,
+        "within25BpPercent": 100.0,
+        "directionAccuracyPercent": 75.0,
+        "directionSampleSize": 24,
+        "intervalCoveragePercent": 100.0,
+        "meanIntervalWidthBp": 64.00500805451816
+      },
+      "pairedImprovementInterval": {
+        "quantity": "baseline_MAE_minus_model_MAE_bp",
+        "mean": 2.2718976945744784,
+        "lower95": 0.1263227967371869,
+        "upper95": 4.00092102790857,
+        "blockMonths": 6,
+        "replicates": 2000,
+        "smallSampleWarning": true
+      },
+      "forecastAudit": {
+        "trainingRows": 166,
+        "lastTrainingOrigin": "2026-06",
+        "lastTrainingTargetMonth": "2026-07",
+        "lastTrainingLabelAvailableMonth": "2026-09",
+        "scalerFittedThroughOrigin": "2026-06"
+      },
+      "featureAudit": {
+        "origin": 24320,
+        "lastTargetMonth": 24318,
+        "lastMacroMonth": 24319,
+        "maxAssumedAvailableMonth": 24320,
+        "references": [
+          {
+            "code": "BNK_99034_LR_BIR_MRTG_1492",
+            "period": "2025-07",
+            "assumedAvailableMonth": "2025-09"
+          },
+          {
+            "code": "BNK_99034_LR_BIR_MRTG_1492",
+            "period": "2026-01",
+            "assumedAvailableMonth": "2026-03"
+          },
+          {
+            "code": "BNK_99034_LR_BIR_MRTG_1492",
+            "period": "2026-04",
+            "assumedAvailableMonth": "2026-06"
+          },
+          {
+            "code": "BNK_99034_LR_BIR_MRTG_1492",
+            "period": "2026-06",
+            "assumedAvailableMonth": "2026-08"
+          },
+          {
+            "code": "BNK_99034_LR_BIR_MRTG_1492",
+            "period": "2026-07",
+            "assumedAvailableMonth": "2026-09"
+          },
+          {
+            "code": "EXP_EXP_01Y_BI_MA",
+            "period": "2026-05",
+            "assumedAvailableMonth": "2026-06"
+          },
+          {
+            "code": "EXP_EXP_01Y_BI_MA",
+            "period": "2026-08",
+            "assumedAvailableMonth": "2026-09"
+          },
+          {
+            "code": "MNT_RIB_BOI_D",
+            "period": "2025-08",
+            "assumedAvailableMonth": "2025-09"
+          },
+          {
+            "code": "MNT_RIB_BOI_D",
+            "period": "2026-05",
+            "assumedAvailableMonth": "2026-06"
+          },
+          {
+            "code": "MNT_RIB_BOI_D",
+            "period": "2026-07",
+            "assumedAvailableMonth": "2026-08"
+          },
+          {
+            "code": "MNT_RIB_BOI_D",
+            "period": "2026-08",
+            "assumedAvailableMonth": "2026-09"
+          },
+          {
+            "code": "ZC_TSB_ZND_01Y_MA",
+            "period": "2026-08",
+            "assumedAvailableMonth": "2026-09"
+          },
+          {
+            "code": "ZC_TSB_ZND_05Y_MA",
+            "period": "2026-05",
+            "assumedAvailableMonth": "2026-06"
+          },
+          {
+            "code": "ZC_TSB_ZND_05Y_MA",
+            "period": "2026-07",
+            "assumedAvailableMonth": "2026-08"
+          },
+          {
+            "code": "ZC_TSB_ZND_05Y_MA",
+            "period": "2026-08",
+            "assumedAvailableMonth": "2026-09"
+          },
+          {
+            "code": "ZC_TSB_ZND_10Y_MA",
+            "period": "2026-08",
+            "assumedAvailableMonth": "2026-09"
+          },
+          {
+            "code": "ZC_TSB_ZRD_01Y_MA",
+            "period": "2026-08",
+            "assumedAvailableMonth": "2026-09"
+          },
+          {
+            "code": "ZC_TSB_ZRD_05Y_MA",
+            "period": "2026-05",
+            "assumedAvailableMonth": "2026-06"
+          },
+          {
+            "code": "ZC_TSB_ZRD_05Y_MA",
+            "period": "2026-07",
+            "assumedAvailableMonth": "2026-08"
+          },
+          {
+            "code": "ZC_TSB_ZRD_05Y_MA",
+            "period": "2026-08",
+            "assumedAvailableMonth": "2026-09"
+          },
+          {
+            "code": "ZC_TSB_ZRD_10Y_MA",
+            "period": "2026-08",
+            "assumedAvailableMonth": "2026-09"
+          },
+          {
+            "code": "percentYear",
+            "period": "2026-05",
+            "assumedAvailableMonth": "2026-06"
+          },
+          {
+            "code": "percentYear",
+            "period": "2026-08",
+            "assumedAvailableMonth": "2026-09"
+          }
+        ]
+      },
+      "contributions": [
+        {
+          "feature": "rate_level",
+          "contributionBp": -1.9376586712487056
+        },
+        {
+          "feature": "rate_change_1",
+          "contributionBp": -0.668195062438736
+        },
+        {
+          "feature": "rate_change_3",
+          "contributionBp": -0.44666208784225125
+        },
+        {
+          "feature": "rate_change_6",
+          "contributionBp": -0.1677080210346938
+        },
+        {
+          "feature": "rate_change_12",
+          "contributionBp": -0.7628064094040006
+        },
+        {
+          "feature": "nominal5_gap",
+          "contributionBp": 0.2099330270128117
+        },
+        {
+          "feature": "real5_gap",
+          "contributionBp": 2.5601039648328965
+        },
+        {
+          "feature": "nominal_slope",
+          "contributionBp": -0.7463105268512644
+        },
+        {
+          "feature": "real_slope",
+          "contributionBp": -0.1298510224202579
+        },
+        {
+          "feature": "nominal5_change_1",
+          "contributionBp": 0.24406138557512203
+        },
+        {
+          "feature": "nominal5_change_3",
+          "contributionBp": -1.3177594688746217
+        },
+        {
+          "feature": "real5_change_1",
+          "contributionBp": 0.9973776933055744
+        },
+        {
+          "feature": "real5_change_3",
+          "contributionBp": -0.43747931881210345
+        },
+        {
+          "feature": "inflation_expected",
+          "contributionBp": 0.38904643308168374
+        },
+        {
+          "feature": "inflation_expected_change_3",
+          "contributionBp": 1.6196975680152854
+        },
+        {
+          "feature": "training_intercept",
+          "contributionBp": 1.8132530120481931
+        }
+      ],
+      "holdout": [
+        {
+          "origin": "2024-03",
+          "targetMonth": "2024-04",
+          "prediction": 3.223535000046149,
+          "actual": 3.03,
+          "baseline": 3.28
+        },
+        {
+          "origin": "2024-04",
+          "targetMonth": "2024-05",
+          "prediction": 3.190985054292988,
+          "actual": 3.01,
+          "baseline": 3.16
+        },
+        {
+          "origin": "2024-05",
+          "targetMonth": "2024-06",
+          "prediction": 3.097777902683449,
+          "actual": 3.05,
+          "baseline": 3.02
+        },
+        {
+          "origin": "2024-06",
+          "targetMonth": "2024-07",
+          "prediction": 3.1187107579686697,
+          "actual": 3.15,
+          "baseline": 3.03
+        },
+        {
+          "origin": "2024-07",
+          "targetMonth": "2024-08",
+          "prediction": 3.108633004072158,
+          "actual": 3.19,
+          "baseline": 3.01
+        },
+        {
+          "origin": "2024-08",
+          "targetMonth": "2024-09",
+          "prediction": 3.108843846127375,
+          "actual": 3.22,
+          "baseline": 3.05
+        },
+        {
+          "origin": "2024-09",
+          "targetMonth": "2024-10",
+          "prediction": 3.143200941078544,
+          "actual": 3.19,
+          "baseline": 3.15
+        },
+        {
+          "origin": "2024-10",
+          "targetMonth": "2024-11",
+          "prediction": 3.2078913241479055,
+          "actual": 3.18,
+          "baseline": 3.19
+        },
+        {
+          "origin": "2024-11",
+          "targetMonth": "2024-12",
+          "prediction": 3.24609855179916,
+          "actual": 3.11,
+          "baseline": 3.22
+        },
+        {
+          "origin": "2024-12",
+          "targetMonth": "2025-01",
+          "prediction": 3.2123488186747324,
+          "actual": 3.3,
+          "baseline": 3.19
+        },
+        {
+          "origin": "2025-01",
+          "targetMonth": "2025-02",
+          "prediction": 3.102963335235715,
+          "actual": 3.24,
+          "baseline": 3.18
+        },
+        {
+          "origin": "2025-02",
+          "targetMonth": "2025-03",
+          "prediction": 3.0666776891453655,
+          "actual": 3.21,
+          "baseline": 3.11
+        },
+        {
+          "origin": "2025-03",
+          "targetMonth": "2025-04",
+          "prediction": 3.258151247552233,
+          "actual": 3.26,
+          "baseline": 3.3
+        },
+        {
+          "origin": "2025-04",
+          "targetMonth": "2025-05",
+          "prediction": 3.2613792954837355,
+          "actual": 3.37,
+          "baseline": 3.24
+        },
+        {
+          "origin": "2025-05",
+          "targetMonth": "2025-06",
+          "prediction": 3.2787679592771575,
+          "actual": 3.41,
+          "baseline": 3.21
+        },
+        {
+          "origin": "2025-06",
+          "targetMonth": "2025-07",
+          "prediction": 3.332277877648609,
+          "actual": 3.43,
+          "baseline": 3.26
+        },
+        {
+          "origin": "2025-07",
+          "targetMonth": "2025-08",
+          "prediction": 3.4574681210860154,
+          "actual": 3.4,
+          "baseline": 3.37
+        },
+        {
+          "origin": "2025-08",
+          "targetMonth": "2025-09",
+          "prediction": 3.366099984342864,
+          "actual": 3.4,
+          "baseline": 3.41
+        },
+        {
+          "origin": "2025-09",
+          "targetMonth": "2025-10",
+          "prediction": 3.4115901485092825,
+          "actual": 3.37,
+          "baseline": 3.43
+        },
+        {
+          "origin": "2025-10",
+          "targetMonth": "2025-11",
+          "prediction": 3.322508738553,
+          "actual": 3.34,
+          "baseline": 3.4
+        },
+        {
+          "origin": "2025-11",
+          "targetMonth": "2025-12",
+          "prediction": 3.290701239063481,
+          "actual": 3.23,
+          "baseline": 3.4
+        },
+        {
+          "origin": "2025-12",
+          "targetMonth": "2026-01",
+          "prediction": 3.301716905957544,
+          "actual": 3.3,
+          "baseline": 3.37
+        },
+        {
+          "origin": "2026-01",
+          "targetMonth": "2026-02",
+          "prediction": 3.3215812882369393,
+          "actual": 3.25,
+          "baseline": 3.34
+        },
+        {
+          "origin": "2026-02",
+          "targetMonth": "2026-03",
+          "prediction": 3.1840374873606283,
+          "actual": 3.19,
+          "baseline": 3.23
+        }
+      ]
+    },
+    {
+      "id": "fixed_linked-3",
+      "track": "indexed",
+      "horizon": 3,
+      "origin": "2026-09",
+      "targetMonth": "2026-12",
+      "baselineMonth": "2026-07",
+      "baseline": 3.22,
+      "prediction": 3.2158743222188635,
+      "lower90": 2.71687790538936,
+      "upper90": 3.714870739048367,
+      "lockedCandidate": "ridge/curve/wall/a100/blend1",
+      "lockedAt": "2024-03",
+      "metrics": {
+        "n": 24,
+        "maeBp": 9.874287360646685,
+        "rmseBp": 12.936204639559682,
+        "biasBp": -4.660298979893942,
+        "medianAbsoluteErrorBp": 7.891465296182543,
+        "p90AbsoluteErrorBp": 18.95753551456456,
+        "baselineMaeBp": 12.166666666666671,
+        "improvementPercent": 18.841473748109472,
+        "within10BpPercent": 66.66666666666666,
+        "within25BpPercent": 95.83333333333334,
+        "directionAccuracyPercent": 73.91304347826086,
+        "directionSampleSize": 23,
+        "intervalCoveragePercent": 100.0,
+        "meanIntervalWidthBp": 99.79928336590065
+      },
+      "sensitivityMetrics": {
+        "n": 24,
+        "maeBp": 18.958333333333346,
+        "rmseBp": 23.4191872901972,
+        "biasBp": -2.6250000000000013,
+        "medianAbsoluteErrorBp": 16.999999999999993,
+        "p90AbsoluteErrorBp": 40.100000000000016,
+        "baselineMaeBp": 13.416666666666677,
+        "improvementPercent": -41.30434782608694,
+        "within10BpPercent": 33.33333333333333,
+        "within25BpPercent": 66.66666666666666,
+        "directionAccuracyPercent": 45.83333333333333,
+        "directionSampleSize": 24,
+        "intervalCoveragePercent": 100.0,
+        "meanIntervalWidthBp": 134.09749082104508
+      },
+      "pairedImprovementInterval": {
+        "quantity": "baseline_MAE_minus_model_MAE_bp",
+        "mean": 2.292379306019989,
+        "lower95": -1.7457536982752226,
+        "upper95": 5.824975556505288,
+        "blockMonths": 6,
+        "replicates": 2000,
+        "smallSampleWarning": true
+      },
+      "forecastAudit": {
+        "trainingRows": 164,
+        "lastTrainingOrigin": "2026-04",
+        "lastTrainingTargetMonth": "2026-07",
+        "lastTrainingLabelAvailableMonth": "2026-09",
+        "scalerFittedThroughOrigin": "2026-04"
+      },
+      "featureAudit": {
+        "origin": 24320,
+        "lastTargetMonth": 24318,
+        "lastMacroMonth": 24319,
+        "maxAssumedAvailableMonth": 24320,
+        "references": [
+          {
+            "code": "BNK_99034_LR_BIR_MRTG_1492",
+            "period": "2025-07",
+            "assumedAvailableMonth": "2025-09"
+          },
+          {
+            "code": "BNK_99034_LR_BIR_MRTG_1492",
+            "period": "2026-01",
+            "assumedAvailableMonth": "2026-03"
+          },
+          {
+            "code": "BNK_99034_LR_BIR_MRTG_1492",
+            "period": "2026-04",
+            "assumedAvailableMonth": "2026-06"
+          },
+          {
+            "code": "BNK_99034_LR_BIR_MRTG_1492",
+            "period": "2026-06",
+            "assumedAvailableMonth": "2026-08"
+          },
+          {
+            "code": "BNK_99034_LR_BIR_MRTG_1492",
+            "period": "2026-07",
+            "assumedAvailableMonth": "2026-09"
+          },
+          {
+            "code": "EXP_EXP_01Y_BI_MA",
+            "period": "2026-05",
+            "assumedAvailableMonth": "2026-06"
+          },
+          {
+            "code": "EXP_EXP_01Y_BI_MA",
+            "period": "2026-08",
+            "assumedAvailableMonth": "2026-09"
+          },
+          {
+            "code": "MNT_RIB_BOI_D",
+            "period": "2025-08",
+            "assumedAvailableMonth": "2025-09"
+          },
+          {
+            "code": "MNT_RIB_BOI_D",
+            "period": "2026-05",
+            "assumedAvailableMonth": "2026-06"
+          },
+          {
+            "code": "MNT_RIB_BOI_D",
+            "period": "2026-07",
+            "assumedAvailableMonth": "2026-08"
+          },
+          {
+            "code": "MNT_RIB_BOI_D",
+            "period": "2026-08",
+            "assumedAvailableMonth": "2026-09"
+          },
+          {
+            "code": "ZC_TSB_ZND_01Y_MA",
+            "period": "2026-08",
+            "assumedAvailableMonth": "2026-09"
+          },
+          {
+            "code": "ZC_TSB_ZND_05Y_MA",
+            "period": "2026-05",
+            "assumedAvailableMonth": "2026-06"
+          },
+          {
+            "code": "ZC_TSB_ZND_05Y_MA",
+            "period": "2026-07",
+            "assumedAvailableMonth": "2026-08"
+          },
+          {
+            "code": "ZC_TSB_ZND_05Y_MA",
+            "period": "2026-08",
+            "assumedAvailableMonth": "2026-09"
+          },
+          {
+            "code": "ZC_TSB_ZND_10Y_MA",
+            "period": "2026-08",
+            "assumedAvailableMonth": "2026-09"
+          },
+          {
+            "code": "ZC_TSB_ZRD_01Y_MA",
+            "period": "2026-08",
+            "assumedAvailableMonth": "2026-09"
+          },
+          {
+            "code": "ZC_TSB_ZRD_05Y_MA",
+            "period": "2026-05",
+            "assumedAvailableMonth": "2026-06"
+          },
+          {
+            "code": "ZC_TSB_ZRD_05Y_MA",
+            "period": "2026-07",
+            "assumedAvailableMonth": "2026-08"
+          },
+          {
+            "code": "ZC_TSB_ZRD_05Y_MA",
+            "period": "2026-08",
+            "assumedAvailableMonth": "2026-09"
+          },
+          {
+            "code": "ZC_TSB_ZRD_10Y_MA",
+            "period": "2026-08",
+            "assumedAvailableMonth": "2026-09"
+          },
+          {
+            "code": "percentYear",
+            "period": "2026-05",
+            "assumedAvailableMonth": "2026-06"
+          },
+          {
+            "code": "percentYear",
+            "period": "2026-08",
+            "assumedAvailableMonth": "2026-09"
+          }
+        ]
+      },
+      "contributions": [
+        {
+          "feature": "rate_level",
+          "contributionBp": -3.676172768562781
+        },
+        {
+          "feature": "rate_change_1",
+          "contributionBp": -0.9902920565025768
+        },
+        {
+          "feature": "rate_change_3",
+          "contributionBp": -0.6037881220334667
+        },
+        {
+          "feature": "rate_change_6",
+          "contributionBp": -0.32837527810419254
+        },
+        {
+          "feature": "rate_change_12",
+          "contributionBp": -1.077267178792079
+        },
+        {
+          "feature": "nominal5_gap",
+          "contributionBp": 0.21601175895731656
+        },
+        {
+          "feature": "real5_gap",
+          "contributionBp": 3.0849465191871777
+        },
+        {
+          "feature": "nominal_slope",
+          "contributionBp": -0.7104564243093408
+        },
+        {
+          "feature": "real_slope",
+          "contributionBp": -0.609713803471955
+        },
+        {
+          "feature": "nominal5_change_1",
+          "contributionBp": 0.6563071885421518
+        },
+        {
+          "feature": "nominal5_change_3",
+          "contributionBp": -1.5147092283382932
+        },
+        {
+          "feature": "real5_change_1",
+          "contributionBp": 1.1943391346213827
+        },
+        {
+          "feature": "real5_change_3",
+          "contributionBp": -0.4565456571803823
+        },
+        {
+          "feature": "inflation_expected",
+          "contributionBp": 0.2897332688856059
+        },
+        {
+          "feature": "inflation_expected_change_3",
+          "contributionBp": 1.1012197470365348
+        },
+        {
+          "feature": "training_intercept",
+          "contributionBp": 3.0121951219512204
+        }
+      ],
+      "holdout": [
+        {
+          "origin": "2024-03",
+          "targetMonth": "2024-06",
+          "prediction": 3.2311355325734143,
+          "actual": 3.05,
+          "baseline": 3.28
+        },
+        {
+          "origin": "2024-04",
+          "targetMonth": "2024-07",
+          "prediction": 3.1919782646032506,
+          "actual": 3.15,
+          "baseline": 3.16
+        },
+        {
+          "origin": "2024-05",
+          "targetMonth": "2024-08",
+          "prediction": 3.1228946978072427,
+          "actual": 3.19,
+          "baseline": 3.02
+        },
+        {
+          "origin": "2024-06",
+          "targetMonth": "2024-09",
+          "prediction": 3.1419415342451127,
+          "actual": 3.22,
+          "baseline": 3.03
+        },
+        {
+          "origin": "2024-07",
+          "targetMonth": "2024-10",
+          "prediction": 3.13826468575446,
+          "actual": 3.19,
+          "baseline": 3.01
+        },
+        {
+          "origin": "2024-08",
+          "targetMonth": "2024-11",
+          "prediction": 3.100229159831237,
+          "actual": 3.18,
+          "baseline": 3.05
+        },
+        {
+          "origin": "2024-09",
+          "targetMonth": "2024-12",
+          "prediction": 3.1150459710632448,
+          "actual": 3.11,
+          "baseline": 3.15
+        },
+        {
+          "origin": "2024-10",
+          "targetMonth": "2025-01",
+          "prediction": 3.219476885447324,
+          "actual": 3.3,
+          "baseline": 3.19
+        },
+        {
+          "origin": "2024-11",
+          "targetMonth": "2025-02",
+          "prediction": 3.258726941876094,
+          "actual": 3.24,
+          "baseline": 3.22
+        },
+        {
+          "origin": "2024-12",
+          "targetMonth": "2025-03",
+          "prediction": 3.1855437348991824,
+          "actual": 3.21,
+          "baseline": 3.19
+        },
+        {
+          "origin": "2025-01",
+          "targetMonth": "2025-04",
+          "prediction": 3.0385656398681027,
+          "actual": 3.26,
+          "baseline": 3.18
+        },
+        {
+          "origin": "2025-02",
+          "targetMonth": "2025-05",
+          "prediction": 3.0283684432143647,
+          "actual": 3.37,
+          "baseline": 3.11
+        },
+        {
+          "origin": "2025-03",
+          "targetMonth": "2025-06",
+          "prediction": 3.2204058134359093,
+          "actual": 3.41,
+          "baseline": 3.3
+        },
+        {
+          "origin": "2025-04",
+          "targetMonth": "2025-07",
+          "prediction": 3.240468584830727,
+          "actual": 3.43,
+          "baseline": 3.24
+        },
+        {
+          "origin": "2025-05",
+          "targetMonth": "2025-08",
+          "prediction": 3.2551851494078683,
+          "actual": 3.4,
+          "baseline": 3.21
+        },
+        {
+          "origin": "2025-06",
+          "targetMonth": "2025-09",
+          "prediction": 3.3297180384907343,
+          "actual": 3.4,
+          "baseline": 3.26
+        },
+        {
+          "origin": "2025-07",
+          "targetMonth": "2025-10",
+          "prediction": 3.4650799523218225,
+          "actual": 3.37,
+          "baseline": 3.37
+        },
+        {
+          "origin": "2025-08",
+          "targetMonth": "2025-11",
+          "prediction": 3.3221754796815044,
+          "actual": 3.34,
+          "baseline": 3.41
+        },
+        {
+          "origin": "2025-09",
+          "targetMonth": "2025-12",
+          "prediction": 3.390767936640146,
+          "actual": 3.23,
+          "baseline": 3.43
+        },
+        {
+          "origin": "2025-10",
+          "targetMonth": "2026-01",
+          "prediction": 3.2989129183680026,
+          "actual": 3.3,
+          "baseline": 3.4
+        },
+        {
+          "origin": "2025-11",
+          "targetMonth": "2026-02",
+          "prediction": 3.242957869390677,
+          "actual": 3.25,
+          "baseline": 3.4
+        },
+        {
+          "origin": "2025-12",
+          "targetMonth": "2026-03",
+          "prediction": 3.278780838390695,
+          "actual": 3.19,
+          "baseline": 3.37
+        },
+        {
+          "origin": "2026-01",
+          "targetMonth": "2026-04",
+          "prediction": 3.304163168221662,
+          "actual": 3.27,
+          "baseline": 3.34
+        },
+        {
+          "origin": "2026-02",
+          "targetMonth": "2026-05",
+          "prediction": 3.130741004462676,
+          "actual": 3.31,
+          "baseline": 3.23
+        }
+      ]
+    },
+    {
+      "id": "fixed_linked-6",
+      "track": "indexed",
+      "horizon": 6,
+      "origin": "2026-09",
+      "targetMonth": "2027-03",
+      "baselineMonth": "2026-07",
+      "baseline": 3.22,
+      "prediction": 3.1533333333333338,
+      "lower90": 2.305485420274351,
+      "upper90": 4.001181246392317,
+      "lockedCandidate": "damped_momentum",
+      "lockedAt": "2024-03",
+      "metrics": {
+        "n": 24,
+        "maeBp": 21.2638888888889,
+        "rmseBp": 27.360843202298092,
+        "biasBp": -5.319444444444453,
+        "medianAbsoluteErrorBp": 16.83333333333332,
+        "p90AbsoluteErrorBp": 45.766666666666715,
+        "baselineMaeBp": 13.375,
+        "improvementPercent": -58.9823468328142,
+        "within10BpPercent": 37.5,
+        "within25BpPercent": 62.5,
+        "directionAccuracyPercent": 50.0,
+        "directionSampleSize": 24,
+        "intervalCoveragePercent": 100.0,
+        "meanIntervalWidthBp": 169.5695826117966
+      },
+      "sensitivityMetrics": {
+        "n": 24,
+        "maeBp": 20.77287489630912,
+        "rmseBp": 24.999402849096768,
+        "biasBp": -19.17305377701203,
+        "medianAbsoluteErrorBp": 19.02917691880701,
+        "p90AbsoluteErrorBp": 40.31590735526377,
+        "baselineMaeBp": 13.958333333333334,
+        "improvementPercent": -48.820596272065316,
+        "within10BpPercent": 25.0,
+        "within25BpPercent": 58.333333333333336,
+        "directionAccuracyPercent": 37.5,
+        "directionSampleSize": 24,
+        "intervalCoveragePercent": 100.0,
+        "meanIntervalWidthBp": 230.0750382120907
+      },
+      "pairedImprovementInterval": {
+        "quantity": "baseline_MAE_minus_model_MAE_bp",
+        "mean": -7.888888888888899,
+        "lower95": -14.888888888888891,
+        "upper95": -1.2500000000000149,
+        "blockMonths": 8,
+        "replicates": 2000,
+        "smallSampleWarning": true
+      },
+      "forecastAudit": {
+        "trainingRows": 161,
+        "lastTrainingOrigin": "2026-01",
+        "lastTrainingTargetMonth": "2026-07",
+        "lastTrainingLabelAvailableMonth": "2026-09"
+      },
+      "featureAudit": {
+        "origin": 24320,
+        "lastTargetMonth": 24318,
+        "lastMacroMonth": 24319,
+        "maxAssumedAvailableMonth": 24320,
+        "references": [
+          {
+            "code": "BNK_99034_LR_BIR_MRTG_1492",
+            "period": "2025-07",
+            "assumedAvailableMonth": "2025-09"
+          },
+          {
+            "code": "BNK_99034_LR_BIR_MRTG_1492",
+            "period": "2026-01",
+            "assumedAvailableMonth": "2026-03"
+          },
+          {
+            "code": "BNK_99034_LR_BIR_MRTG_1492",
+            "period": "2026-04",
+            "assumedAvailableMonth": "2026-06"
+          },
+          {
+            "code": "BNK_99034_LR_BIR_MRTG_1492",
+            "period": "2026-06",
+            "assumedAvailableMonth": "2026-08"
+          },
+          {
+            "code": "BNK_99034_LR_BIR_MRTG_1492",
+            "period": "2026-07",
+            "assumedAvailableMonth": "2026-09"
+          },
+          {
+            "code": "EXP_EXP_01Y_BI_MA",
+            "period": "2026-05",
+            "assumedAvailableMonth": "2026-06"
+          },
+          {
+            "code": "EXP_EXP_01Y_BI_MA",
+            "period": "2026-08",
+            "assumedAvailableMonth": "2026-09"
+          },
+          {
+            "code": "MNT_RIB_BOI_D",
+            "period": "2025-08",
+            "assumedAvailableMonth": "2025-09"
+          },
+          {
+            "code": "MNT_RIB_BOI_D",
+            "period": "2026-05",
+            "assumedAvailableMonth": "2026-06"
+          },
+          {
+            "code": "MNT_RIB_BOI_D",
+            "period": "2026-07",
+            "assumedAvailableMonth": "2026-08"
+          },
+          {
+            "code": "MNT_RIB_BOI_D",
+            "period": "2026-08",
+            "assumedAvailableMonth": "2026-09"
+          },
+          {
+            "code": "ZC_TSB_ZND_01Y_MA",
+            "period": "2026-08",
+            "assumedAvailableMonth": "2026-09"
+          },
+          {
+            "code": "ZC_TSB_ZND_05Y_MA",
+            "period": "2026-05",
+            "assumedAvailableMonth": "2026-06"
+          },
+          {
+            "code": "ZC_TSB_ZND_05Y_MA",
+            "period": "2026-07",
+            "assumedAvailableMonth": "2026-08"
+          },
+          {
+            "code": "ZC_TSB_ZND_05Y_MA",
+            "period": "2026-08",
+            "assumedAvailableMonth": "2026-09"
+          },
+          {
+            "code": "ZC_TSB_ZND_10Y_MA",
+            "period": "2026-08",
+            "assumedAvailableMonth": "2026-09"
+          },
+          {
+            "code": "ZC_TSB_ZRD_01Y_MA",
+            "period": "2026-08",
+            "assumedAvailableMonth": "2026-09"
+          },
+          {
+            "code": "ZC_TSB_ZRD_05Y_MA",
+            "period": "2026-05",
+            "assumedAvailableMonth": "2026-06"
+          },
+          {
+            "code": "ZC_TSB_ZRD_05Y_MA",
+            "period": "2026-07",
+            "assumedAvailableMonth": "2026-08"
+          },
+          {
+            "code": "ZC_TSB_ZRD_05Y_MA",
+            "period": "2026-08",
+            "assumedAvailableMonth": "2026-09"
+          },
+          {
+            "code": "ZC_TSB_ZRD_10Y_MA",
+            "period": "2026-08",
+            "assumedAvailableMonth": "2026-09"
+          },
+          {
+            "code": "percentYear",
+            "period": "2026-05",
+            "assumedAvailableMonth": "2026-06"
+          },
+          {
+            "code": "percentYear",
+            "period": "2026-08",
+            "assumedAvailableMonth": "2026-09"
+          }
+        ]
+      },
+      "contributions": [],
+      "holdout": [
+        {
+          "origin": "2024-03",
+          "targetMonth": "2024-09",
+          "prediction": 3.293333333333333,
+          "actual": 3.22,
+          "baseline": 3.28
+        },
+        {
+          "origin": "2024-04",
+          "targetMonth": "2024-10",
+          "prediction": 2.8533333333333335,
+          "actual": 3.19,
+          "baseline": 3.16
+        },
+        {
+          "origin": "2024-05",
+          "targetMonth": "2024-11",
+          "prediction": 2.6066666666666665,
+          "actual": 3.18,
+          "baseline": 3.02
+        },
+        {
+          "origin": "2024-06",
+          "targetMonth": "2024-12",
+          "prediction": 2.6966666666666663,
+          "actual": 3.11,
+          "baseline": 3.03
+        },
+        {
+          "origin": "2024-07",
+          "targetMonth": "2025-01",
+          "prediction": 2.809999999999999,
+          "actual": 3.3,
+          "baseline": 3.01
+        },
+        {
+          "origin": "2024-08",
+          "targetMonth": "2025-02",
+          "prediction": 3.0899999999999994,
+          "actual": 3.24,
+          "baseline": 3.05
+        },
+        {
+          "origin": "2024-09",
+          "targetMonth": "2025-03",
+          "prediction": 3.31,
+          "actual": 3.21,
+          "baseline": 3.15
+        },
+        {
+          "origin": "2024-10",
+          "targetMonth": "2025-04",
+          "prediction": 3.43,
+          "actual": 3.26,
+          "baseline": 3.19
+        },
+        {
+          "origin": "2024-11",
+          "targetMonth": "2025-05",
+          "prediction": 3.446666666666667,
+          "actual": 3.37,
+          "baseline": 3.22
+        },
+        {
+          "origin": "2024-12",
+          "targetMonth": "2025-06",
+          "prediction": 3.243333333333333,
+          "actual": 3.41,
+          "baseline": 3.19
+        },
+        {
+          "origin": "2025-01",
+          "targetMonth": "2025-07",
+          "prediction": 3.166666666666667,
+          "actual": 3.43,
+          "baseline": 3.18
+        },
+        {
+          "origin": "2025-02",
+          "targetMonth": "2025-08",
+          "prediction": 2.963333333333333,
+          "actual": 3.4,
+          "baseline": 3.11
+        },
+        {
+          "origin": "2025-03",
+          "targetMonth": "2025-09",
+          "prediction": 3.4466666666666663,
+          "actual": 3.4,
+          "baseline": 3.3
+        },
+        {
+          "origin": "2025-04",
+          "targetMonth": "2025-10",
+          "prediction": 3.3200000000000003,
+          "actual": 3.37,
+          "baseline": 3.24
+        },
+        {
+          "origin": "2025-05",
+          "targetMonth": "2025-11",
+          "prediction": 3.3433333333333333,
+          "actual": 3.34,
+          "baseline": 3.21
+        },
+        {
+          "origin": "2025-06",
+          "targetMonth": "2025-12",
+          "prediction": 3.2066666666666666,
+          "actual": 3.23,
+          "baseline": 3.26
+        },
+        {
+          "origin": "2025-07",
+          "targetMonth": "2026-01",
+          "prediction": 3.5433333333333334,
+          "actual": 3.3,
+          "baseline": 3.37
+        },
+        {
+          "origin": "2025-08",
+          "targetMonth": "2026-02",
+          "prediction": 3.676666666666667,
+          "actual": 3.25,
+          "baseline": 3.41
+        },
+        {
+          "origin": "2025-09",
+          "targetMonth": "2026-03",
+          "prediction": 3.656666666666667,
+          "actual": 3.19,
+          "baseline": 3.43
+        },
+        {
+          "origin": "2025-10",
+          "targetMonth": "2026-04",
+          "prediction": 3.4399999999999995,
+          "actual": 3.27,
+          "baseline": 3.4
+        },
+        {
+          "origin": "2025-11",
+          "targetMonth": "2026-05",
+          "prediction": 3.3866666666666663,
+          "actual": 3.31,
+          "baseline": 3.4
+        },
+        {
+          "origin": "2025-12",
+          "targetMonth": "2026-06",
+          "prediction": 3.29,
+          "actual": 3.27,
+          "baseline": 3.37
+        },
+        {
+          "origin": "2026-01",
+          "targetMonth": "2026-07",
+          "prediction": 3.26,
+          "actual": 3.22,
+          "baseline": 3.34
+        },
+        {
+          "origin": "2026-02",
+          "targetMonth": "2026-08",
+          "prediction": 3.0033333333333334,
+          "actual": 3.29,
+          "baseline": 3.23
+        }
+      ]
+    }
+  ]
+}

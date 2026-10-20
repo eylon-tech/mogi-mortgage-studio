@@ -1,0 +1,24 @@
+{
+  "modelVersion": "mogi-2.0.0",
+  "engineVersion": "mogi-cashflow-0.2.1",
+  "checkedAt": "2026-10-08",
+  "fixed": {
+    "currentTotal": 2000996.74,
+    "referenceTotal": 2000996.92,
+    "difference": -0.18
+  },
+  "variable": {
+    "currentTotal": 2127190.42,
+    "wiseTotal": 2132103,
+    "difference": -4912.58
+  },
+  "indexed": {
+    "currentTotal": 2203280.57,
+    "wiseTotal": 2203278,
+    "difference": 2.57,
+    "currentPeak": 9315.71,
+    "wisePeak": 9311
+  },
+  "status": "differences_disclosed_not_bank_parity",
+  "note": "Monthly agorot rounding and explicit effective-to-nominal forward conversion. Exact Wise internal conventions and bank day-count rules remain unverified."
+}

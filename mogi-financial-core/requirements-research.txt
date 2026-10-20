@@ -1,0 +1,2 @@
+# Python >=3.11; isolated research subsystem, not the decimal cashflow engine.
+numpy==2.3.5

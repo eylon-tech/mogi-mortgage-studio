@@ -1,0 +1,20 @@
+{
+  "equator": {
+    "officialDashboardStarts": "2023-03",
+    "workbookFirstMonth": "2024-08",
+    "workbookLastMonth": "2026-08",
+    "missingMonths": 17,
+    "earlierArchiveRecovered": false,
+    "archiveLookup": "Public Wayback CDX returned HTTP 503; no archive evidence was accepted",
+    "rateConventionVerified": "effective_annual_percent",
+    "officialPage": "https://www.boi.org.il/information/bank-paymnts/financial-education/campaigns/boi-equator/mortgage/"
+  },
+  "cbs": {
+    "months": 900,
+    "publicationDatesVerified": false
+  },
+  "research": {
+    "pointInTimeVerified": false,
+    "personalQuotesAvailable": false
+  }
+}

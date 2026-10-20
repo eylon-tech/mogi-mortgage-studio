@@ -1,0 +1,223 @@
+{
+  "version": "1.0.0",
+  "numbers": "Store the published percent itself: 4.5 means 4.5%, never silently divide by 100. Blank is NULL/missing; Excel error is NULL/invalid; zero stays zero.",
+  "boi_equator": {
+    "format": "OOXML detected by PK signature, despite .xls URL",
+    "publicationCell": "B1: workbook date, not historical row publication dates",
+    "periodColumn": "B",
+    "firstDataRow": 13,
+    "bankHeaderRow": 10,
+    "trackHeaderRow": 12,
+    "L01": {
+      "firstBankColumn": "C",
+      "bankStride": 6,
+      "measures": [
+        "irr",
+        "fixed_unlinked",
+        "prime",
+        "variable_unlinked",
+        "variable_linked",
+        "fixed_linked"
+      ]
+    },
+    "L02": {
+      "firstBankColumn": "C",
+      "bankStride": 5,
+      "measures": [
+        "fixed_unlinked",
+        "prime",
+        "variable_unlinked",
+        "variable_linked",
+        "fixed_linked"
+      ]
+    },
+    "expectedTrackHeaders": [
+      "3IRR",
+      "קבועה לא צמודה",
+      "משתנה לא צמודה - פריים",
+      "משתנה לא צמודה שאינה פריים",
+      "משתנה צמוד מדד",
+      "קבועה צמוד מדד"
+    ],
+    "scope": "bank monthly aggregates, not customer offers"
+  },
+  "boi_forecast451": {
+    "headerRow": 5,
+    "firstDataRow": 6,
+    "columns": {
+      "A": "year",
+      "B": "Hebrew month",
+      "C": "averaging calendar/מדדי; never combine",
+      "D onward": "horizon_months from row 5"
+    },
+    "sheets": {
+      "תשואה נומינלית הנגזרת מהמודל": {
+        "kind": "nominal",
+        "firstHorizon": 1,
+        "lastHorizon": 360,
+        "unit": "percent",
+        "rateConvention": "effective_annual_percent"
+      },
+      "תשואה ריאלית הנגזרת מהמודל": {
+        "kind": "real",
+        "firstHorizon": 1,
+        "lastHorizon": 360,
+        "unit": "percent",
+        "rateConvention": "effective_annual_percent"
+      },
+      "התפתחות פער התשואות": {
+        "kind": "index",
+        "firstHorizon": 0,
+        "lastHorizon": 360,
+        "unit": "index_base_100",
+        "rateConvention": "not_a_rate"
+      }
+    },
+    "valueClass": "market_model",
+    "warning": "Published model estimates, not realized CPI. Historical rows may be restated; fetched_at is the conservative availability time."
+  },
+  "boi_prepay_linked": {
+    "format": "OLE XLS; read cached cells and check cell types; exclude calculators",
+    "tables": [
+      {
+        "sheet": "RESULT",
+        "headerRow": 2,
+        "firstDataRow": 7,
+        "periodColumn": "I",
+        "effectiveColumn": "H",
+        "valueColumns": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F",
+          "G"
+        ],
+        "buckets": [
+          "all",
+          "gt25",
+          "gt20_le25",
+          "gt15_le20",
+          "gt10_le15",
+          "gt5_le10",
+          "le5"
+        ],
+        "expectedValueHeaders": [
+          "ממוצע",
+          "מעל 25",
+          "מעל 20 ועד 25",
+          "מעל 15 ועד 20",
+          "מעל 10 ועד 15",
+          "מעל 5 ועד 10",
+          "עד 5 שנים"
+        ]
+      },
+      {
+        "sheet": "RESULT_OLD",
+        "headerRow": 2,
+        "firstDataRow": 7,
+        "periodColumn": "I",
+        "effectiveColumn": "H",
+        "valueColumns": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F",
+          "G"
+        ],
+        "buckets": [
+          "all",
+          "gt20",
+          "gt17_le20",
+          "gt15_le17",
+          "gt12_le15",
+          "gt5_le12",
+          "le5"
+        ],
+        "expectedValueHeaders": [
+          "ממוצע",
+          "מעל 20",
+          "מ 17 ועד 20",
+          "מעל 15 ועד 17",
+          "מ 12 ועד 15",
+          "מעל 5 ועד 12",
+          "עד 5 שנים"
+        ]
+      }
+    ],
+    "dateRules": {
+      "period": "Exact reporting date retained; older releases can occur twice a month",
+      "frequency": "I (irregular)",
+      "missingEffectiveDate": "NULL with coverage issue; never infer",
+      "boundaryChange": "Before 2002-11, the 12- and 17-year upper boundaries are exclusive. Preserve source labels and regime; no automatic fee calculator.",
+      "rateConvention": "Effective annual from 2002-11; earlier convention unresolved",
+      "methodology": "https://www.boi.org.il/information/interestrates/mortgage/"
+    }
+  },
+  "boi_prepay_unlinked": {
+    "tables": [
+      {
+        "sheet": "הלוואות שניתנו מ-01.03.2013",
+        "headerRow": 3,
+        "firstDataRow": 8,
+        "periodColumn": "J",
+        "effectiveColumn": "I",
+        "valueColumns": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F",
+          "G",
+          "H"
+        ],
+        "buckets": [
+          "all",
+          "gt25",
+          "gt20_le25",
+          "gt15_le20",
+          "gt10_le15",
+          "gt5_le10",
+          "gt1_le5",
+          "le1"
+        ],
+        "expectedValueHeaders": [
+          "ממוצע",
+          "מעל 25",
+          "מעל 20 ועד 25",
+          "מעל 15 ועד 20",
+          "מעל 10 ועד 15",
+          "מעל 5 ועד 10",
+          "מעל 1 ועד 5",
+          "עד שנה"
+        ]
+      },
+      {
+        "sheet": "הלוואות שניתנו עד-28.02.2013",
+        "headerRow": 4,
+        "firstDataRow": 6,
+        "periodColumn": "A",
+        "effectiveColumn": "B",
+        "valueColumns": [
+          "C"
+        ],
+        "buckets": [
+          "all"
+        ],
+        "expectedValueHeaders": [
+          "שיעור הריבית"
+        ]
+      }
+    ],
+    "dateRules": {
+      "period": "Exact reporting date",
+      "frequency": "I (date-specific reference releases)",
+      "rateConvention": "effective_annual_percent",
+      "pre2013": "Fixed-rate average only; do not merge with the later fixed-and-variable series"
+    }
+  }
+}

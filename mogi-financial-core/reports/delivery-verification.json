@@ -1,0 +1,30 @@
+{
+  "checkedAt": "2026-10-08T14:38:03.840282+00:00",
+  "url": "http://127.0.0.1:4318",
+  "health": {
+    "status": "ok",
+    "backend": "pglite",
+    "personalPricingEnabled": false
+  },
+  "observations": 232007,
+  "series": 288,
+  "nodeTestsPassed": 42,
+  "pythonTestsPassed": 9,
+  "fixedExample": {
+    "months": 300,
+    "firstPayment": "6669.99",
+    "peakPayment": "6669.99",
+    "totalPaid": "2000996.74",
+    "interestPaid": "800996.74",
+    "capitalizedInterest": "0.00",
+    "indexation": "0.00",
+    "totalFees": "0.00",
+    "costAbovePrincipal": "800996.74",
+    "closingBalance": "0.00",
+    "npv": "-11132.18",
+    "monthly": "0.00374999974832229158",
+    "annualEffectivePercent": "4.593982189352"
+  },
+  "replayVerified": true,
+  "ingestionIdempotentSources": 7
+}

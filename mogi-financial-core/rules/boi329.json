@@ -1,0 +1,26 @@
+{
+  "id": "boi329-2026-10-01-v1",
+  "effective_from": "2026-10-01",
+  "verified_through": "2026-10-08",
+  "source_url": "https://www.boi.org.il/media/hjrlkrse/h2852.pdf",
+  "source_sha256": "3325d8940080a722c02e46199f832f6ccabea061b6ccba1e52464209430e473b",
+  "rules": {
+    "variableShareMaxPercent": "66.66",
+    "termMaxMonths": 360,
+    "ptiMaxPercent": "50",
+    "ptiCapitalWeightThresholdPercent": "40",
+    "ltvPercent": {
+      "single": "75",
+      "replacement": "70",
+      "investment": "50"
+    },
+    "nonPurchase": {
+      "ordinaryCapPercent": "50",
+      "discretionaryCapPercent": "70",
+      "excessAbove50MaxILS": "200000"
+    },
+    "commitmentRemainingMonthsExclusive": 18,
+    "samePropertyPtiEffectiveFrom": "2026-10-01",
+    "scope": "Standard residential purchase in Israel; non-purchase concession requires documented bank exercise. Special cases require review."
+  }
+}

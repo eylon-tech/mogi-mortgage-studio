@@ -1,0 +1,15 @@
+{
+  "type": "cbs_price_snapshot",
+  "indexCode": 120010,
+  "expectedItems": 900,
+  "pages": [
+    {
+      "page": 1,
+      "path": "data/raw/7f2a787ad5c8c4c6a8a657a3bf460ed48d81df740acde5b47af6a0cee8f1c056",
+      "sha256": "7f2a787ad5c8c4c6a8a657a3bf460ed48d81df740acde5b47af6a0cee8f1c056",
+      "url": "https://api.cbs.gov.il/index/data/price?id=120010&format=json&download=false&startPeriod=01-1900&lang=he&coef=true&pagesize=1000&page=1",
+      "headers": "HTTP/1.1 200 OK\nCache-Control: no-cache\nPragma: no-cache\nContent-Type: application/json; charset=utf-8\nExpires: -1\nAccess-Control-Allow-Origin: *\nDate: Thu, 08 Oct 2026 14:49:16 GMT\nContent-Length: 609871\nSet-Cookie: [removed for public export]\nStrict-Transport-Security: max-age=16070400; includeSubDomains\nSet-Cookie: [removed for public export]\nAccess-Control-Allow-Headers: X-TS-AJAX-Request\n\n",
+      "fetchedAt": "2026-10-08T14:49:16.265792+00:00"
+    }
+  ]
+}

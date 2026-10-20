@@ -1,0 +1,145 @@
+{
+  "capturedAt": "2026-10-08",
+  "checkedAt": "2026-10-08T15:48:34.923Z",
+  "fixtureType": "Previously captured synthetic public-calculator scenarios; not customer approval documents",
+  "coreSummary": {
+    "months": 300,
+    "firstPayment": "6669.99",
+    "peakPayment": "6669.99",
+    "totalPaid": "2000996.74",
+    "interestPaid": "800996.74",
+    "capitalizedInterest": "0.00",
+    "indexation": "0.00",
+    "totalFees": "0.00",
+    "costAbovePrincipal": "800996.74",
+    "closingBalance": "0.00",
+    "npv": "-11132.18",
+    "monthly": "0.00374999974832229158",
+    "annualEffectivePercent": "4.593982189352"
+  },
+  "unroundedMathematicalReference": {
+    "pmt": "6669.989735543868",
+    "total": "2000996.920663160474"
+  },
+  "bankDisplayComparisons": [
+    {
+      "bank": "לאומי",
+      "url": "https://ufapi.bankleumi.co.il/mortgageCalculator/ExtCalc",
+      "firstPaymentDifferenceIls": "0.99",
+      "totalDifferenceIls": "-0.26",
+      "peakDifferenceIls": "0.99",
+      "sourceNotes": "עיגול תצוגה שונה; עד חמישה מסלולים ושיטות שפיצר, קרן שווה ובוליט"
+    },
+    {
+      "bank": "הפועלים",
+      "url": "https://mortgage.bankhapoalim.co.il/ng-portals/mortgage-calculator/he",
+      "firstPaymentDifferenceIls": "0.00",
+      "totalDifferenceIls": "-0.01",
+      "peakDifferenceIls": "0.00",
+      "sourceNotes": "סלים אחידים ותמהיל אישי; נמצא גם שינוי ריבית כל 18 חודשים"
+    },
+    {
+      "bank": "דיסקונט",
+      "url": "https://mortgage.discountbank.co.il/get-mortgage/calculator?calculator=2",
+      "firstPaymentDifferenceIls": "-0.01",
+      "totalDifferenceIls": "-2.26",
+      "peakDifferenceIls": "-5.01",
+      "sourceNotes": "מחשבון בסיסי והופכי, תמהיל חמישה סוגי מסלולים; סיבת פער השיא הקטן לא אומתה"
+    },
+    {
+      "bank": "מרכנתיל",
+      "url": "https://mortgage.mercantile.co.il/general/mortgage-calculator?calculator=2",
+      "firstPaymentDifferenceIls": "-0.01",
+      "totalDifferenceIls": "-2.26",
+      "peakDifferenceIls": "-5.01",
+      "sourceNotes": "מחשבון בסיסי ותמהיל; תוצאה זהה לדיסקונט, סיבת פער השיא הקטן לא אומתה"
+    },
+    {
+      "bank": "ירושלים",
+      "url": "https://calculator.bankjerusalem.co.il/",
+      "firstPaymentDifferenceIls": "0.00",
+      "totalDifferenceIls": "-0.18",
+      "peakDifferenceIls": "0.00",
+      "sourceNotes": "ארבעה תמהילים, גרייס ובולט, לוח 300 חודשים נשמר"
+    },
+    {
+      "bank": "הבינלאומי",
+      "url": "https://fibi-calc.co.il/",
+      "firstPaymentDifferenceIls": "0.00",
+      "totalDifferenceIls": "-0.18",
+      "peakDifferenceIls": "0.00",
+      "sourceNotes": "ארבעה תמהילים, גרייס בחודשים, לוח סילוקין"
+    }
+  ],
+  "jerusalemRows": {
+    "months": 300,
+    "metrics": {
+      "opening": {
+        "maximumAbsoluteDifferenceIls": "0.26",
+        "worstMonth": 295,
+        "meanAbsoluteDifferenceIls": "0.1035"
+      },
+      "interestPaid": {
+        "maximumAbsoluteDifferenceIls": "0.01",
+        "worstMonth": 120,
+        "meanAbsoluteDifferenceIls": "0.0004"
+      },
+      "principalPaid": {
+        "maximumAbsoluteDifferenceIls": "0.26",
+        "worstMonth": 300,
+        "meanAbsoluteDifferenceIls": "0.0017"
+      },
+      "closing": {
+        "maximumAbsoluteDifferenceIls": "0.26",
+        "worstMonth": 294,
+        "meanAbsoluteDifferenceIls": "0.1035"
+      }
+    }
+  },
+  "wiseRows": {
+    "months": 300,
+    "metrics": {
+      "opening": {
+        "maximumAbsoluteDifferenceIls": "0.70",
+        "worstMonth": 290,
+        "meanAbsoluteDifferenceIls": "0.2854"
+      },
+      "principalPaid": {
+        "maximumAbsoluteDifferenceIls": "0.50",
+        "worstMonth": 68,
+        "meanAbsoluteDifferenceIls": "0.2433"
+      },
+      "interestPaid": {
+        "maximumAbsoluteDifferenceIls": "0.50",
+        "worstMonth": 4,
+        "meanAbsoluteDifferenceIls": "0.2431"
+      },
+      "payment": {
+        "maximumAbsoluteDifferenceIls": "0.27",
+        "worstMonth": 300,
+        "meanAbsoluteDifferenceIls": "0.0109"
+      }
+    }
+  },
+  "status": "differences_measured_not_bank_certified",
+  "limitations": [
+    "Bank internal rounding/day-count conventions are not verified. Core rounds monthly monetary postings to agora.",
+    "Discount/Mercantile displayed peak differs despite fixed nominal input; cause remains unresolved.",
+    "No approved customer amortization document was provided. These fixtures do not train personal pricing.",
+    "Variable-rate Wise experiment remains unresolved; this comparison covers fixed unlinked only."
+  ],
+  "fixtures": [
+    {
+      "file": "tests/fixtures/bank-calculator-findings.json",
+      "sha256": "a8586c9187610797a9bd2e40210c3eab4fbb243efa2e59cc6df9cc31e48adce2"
+    },
+    {
+      "file": "tests/fixtures/jerusalem-fixed-fixture.json",
+      "sha256": "b4b53e461450947b62912aef5565a841d76e0fce9eb51c9bf662c4e7af4f1d6d"
+    },
+    {
+      "file": "tests/fixtures/wise-fixed-fixture.json",
+      "sha256": "147c1f6b493204eba32cd0e94f00cbe32429231637ce22422fb3f717041462f8"
+    }
+  ]
+}

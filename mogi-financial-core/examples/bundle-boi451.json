@@ -1,0 +1,76 @@
+{
+  "schemaVersion": "1",
+  "valuationDate": "2026-10-08",
+  "discountAnnualEffectivePercent": "4.5",
+  "transaction": {
+    "purpose": "purchase",
+    "propertyClass": "single",
+    "propertyValue": "2000000",
+    "inIsrael": true,
+    "isIsraeliCitizen": true,
+    "willResideInProperty": true,
+    "propertyCountAfterTransaction": 1
+  },
+  "income": [
+    {
+      "id": "synthetic-salary",
+      "kind": "salary",
+      "declaredNet": "30000",
+      "recognizedNet": "30000",
+      "frequency": "monthly",
+      "status": "included",
+      "reason": "Synthetic demonstration, not a customer record",
+      "evidenceReference": "example:synthetic"
+    }
+  ],
+  "tracks": [
+    {
+      "id": "fixed-unlinked",
+      "kind": "fixed_unlinked",
+      "projection": "explicit_scenario",
+      "simulation": {
+        "loan": {
+          "schemaVersion": "1",
+          "currency": "ILS",
+          "principal": "600000",
+          "termMonths": 240,
+          "rate": {
+            "annualPercent": "4.5",
+            "convention": "nominal_annual",
+            "origin": "manual",
+            "description": "Fixed-rate mathematical reference case; not a personalized bank quote"
+          },
+          "amortization": "annuity",
+          "discountAnnualEffectivePercent": "4.5"
+        }
+      }
+    },
+    {
+      "id": "fixed-linked",
+      "kind": "fixed_linked",
+      "projection": "explicit_scenario",
+      "simulation": {
+        "loan": {
+          "schemaVersion": "1",
+          "currency": "ILS",
+          "principal": "400000",
+          "termMonths": 240,
+          "rate": {
+            "annualPercent": "3",
+            "convention": "nominal_annual",
+            "origin": "manual",
+            "description": "Illustrative rate, not a customer prediction"
+          },
+          "amortization": "annuity",
+          "discountAnnualEffectivePercent": "4.5"
+        },
+        "boi451Index": {
+          "asOf": "2026-10-08T15:55:31.826Z",
+          "vintage": "2026-09-01",
+          "averaging": "calendar",
+          "indexFloor": "none"
+        }
+      }
+    }
+  ]
+}

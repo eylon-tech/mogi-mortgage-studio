@@ -1,0 +1,7 @@
+node_modules/
+data/pg*/
+.env
+__pycache__/
+.venv/
+
+.python-libs/

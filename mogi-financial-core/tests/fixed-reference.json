@@ -1,0 +1,8 @@
+{
+  "principal": "1200000",
+  "nominalAnnualPercent": "4.5",
+  "months": 300,
+  "unroundedPMT": "6669.9897355438682462450632445581959963060922777366",
+  "unroundedTotal": "2000996.9206631604738735189733674587988918276833210",
+  "method": "Independent Python Decimal closed form p*r*(1+r)^n / ((1+r)^n-1), 50 digit precision; engine rounds each monthly posting to agorot."
+}

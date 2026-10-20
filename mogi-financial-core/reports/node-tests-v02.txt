@@ -1,0 +1,70 @@
+npm notice run mogi-financial-core@0.2.0 test
+npm notice run node --test tests/*.test.mjs
+▶ HTTP API, point-in-time data and reproducible scenarios
+  ✔ Health and OpenAPI are served (60.22025ms)
+  ✔ Invalid timestamps, absent asOf, dates and pagination are rejected (13.158ms)
+  ✔ Historical rows captured today are not visible to an earlier backtest (9.384292ms)
+  ✔ Complete curves separate averaging methods (209.099125ms)
+  ✔ Unavailable vintage fails explicitly (6.013208ms)
+  ✔ Simulation persists an exact replayable input/output (1853.267542ms)
+  ✔ BOI-indexed scenario pins all used observations and source hashes (90.820542ms)
+  ✔ Invalid cashflow input cannot create a saved run (4.9405ms)
+  ✔ Rejects cross-origin writes and non-JSON payloads (4.011792ms)
+  ✔ New bundle request/response follows generated OpenAPI and is retrievable (3430.217ms)
+  ✔ Research results are immutable, explicitly separate from pricing, and served (11.357541ms)
+✔ HTTP API, point-in-time data and reproducible scenarios (8606.115666ms)
+▶ Multi-track cashflows, current terms and regulatory boundaries
+  ✔ Single-track bundle agrees with core and persists exact output (3739.978916ms)
+  ✔ Different maturities aggregate cashflows and close every balance (3922.613917ms)
+  ✔ 100% prime fails variable share even when affordability passes (1669.332542ms)
+  ✔ 66.66 percent boundary is exact, not rounded up from two-thirds (0.693375ms)
+  ✔ Missing forecast retains current payment and no fake aggregate scenario (1679.936041ms)
+  ✔ Grace PTI uses post-grace payment (3376.192417ms)
+  ✔ Capitalized balloon exposes maturity and accrued interest for PTI (2858.221875ms)
+  ✔ Same-property debt is not also deducted from income; 18-month boundary (0.830542ms)
+  ✔ Unknown term, unsupported dates and exceptions require review (0.666333ms)
+  ✔ Variable future paths need all contractual reset dates (1.026416ms)
+✔ Multi-track cashflows, current terms and regulatory boundaries (19864.758167ms)
+✔ Actual CPI replay across rebasing pins evidence and forbids earlier availability (871.327458ms)
+✔ Rolling Equator release retains older months outside window, never missing cells within it (527.118292ms)
+✔ Known fixed annuity: closed-form PMT and reconciled monthly agorot (2473.876083ms)
+✔ Zero interest divides principal and adjusts final cent (5.59925ms)
+✔ Effective annual rate is converted, never divided by twelve (2016.125458ms)
+✔ Equal principal independent arithmetic reference (899.370166ms)
+✔ Interest-only balloon pays principal at maturity (839.254583ms)
+✔ Capitalized balloon matches compound accumulation within monthly rounding bound (708.27025ms)
+✔ Interest-only grace preserves principal and leaves amortization within original term (832.858625ms)
+✔ Capitalizing grace accrues interest before amortization (841.154333ms)
+✔ Reset applies on named month, including during grace (839.853834ms)
+✔ Index level is applied to opening principal before interest (1.828041ms)
+✔ Base floor is not a previous-month ratchet (3.590542ms)
+✔ Prepayment is after installment; recast begins next month (1665.266458ms)
+✔ Term reduction retains payment and closes early (716.022917ms)
+✔ Full prepayment caps at outstanding principal (1.066625ms)
+✔ NPV borrower sign and IRR independent one-period root (1.735334ms)
+✔ Upfront fee changes net draw and raises effective borrowing cost (27.538375ms)
+✔ Forward curve: flat curve stays flat; missing or out-of-range fails (0.60725ms)
+✔ Negative rates are supported under the stated monthly convention (14.85725ms)
+✔ Ambiguous/missing inputs are rejected, including numeric JSON rates and incomplete paths (1.289ms)
+✔ Deterministic mixed scenarios conserve every agora (312.678917ms)
+▶ PostgreSQL foundation: migrations, immutable releases and temporal selection
+  ✔ Migration is repeatable (3.772625ms)
+  ✔ First import and idempotent repeated import (31.685084ms)
+  ✔ Published period does not backdate availability (15.566917ms)
+  ✔ Revision keeps both values and supports prior asOf (23.638ms)
+  ✔ Evidence cannot be edited or deleted (6.370333ms)
+  ✔ Blank is distinct from zero; newest missing value does not fall back (29.211042ms)
+  ✔ A reversion to previously seen bytes remains a new release (16.549666ms)
+  ✔ Deleted rows do not resurrect from an older release (10.865416ms)
+  ✔ Failed import is atomic and cannot become latest (11.261583ms)
+  ✔ Metadata drift fails instead of corrupting series units (11.196292ms)
+  ✔ Personal pricing gate cannot be activated in the database (1.253875ms)
+✔ PostgreSQL foundation: migrations, immutable releases and temporal selection (2853.139708ms)
+ℹ tests 57
+ℹ suites 0
+ℹ pass 57
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 21607.544833

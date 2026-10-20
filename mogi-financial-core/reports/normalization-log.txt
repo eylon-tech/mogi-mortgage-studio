@@ -1,0 +1,7 @@
+{"source": "boi_br", "series": 5, "observations": 40923, "first": "1994-01-27", "last": "2026-10-08", "missing": 537, "invalid": 0}
+{"source": "boi_mortgage", "series": 129, "observations": 21514, "first": "2003-01-01", "last": "2026-08-01", "missing": 0, "invalid": 0}
+{"source": "boi_zcm", "series": 30, "observations": 32203, "first": "1992-01-01", "last": "2026-10-07", "missing": 19, "invalid": 0}
+{"source": "boi_equator", "series": 88, "observations": 2200, "first": "2024-08-01", "last": "2026-08-01", "missing": 0, "invalid": 0}
+{"source": "boi_forecast451", "series": 6, "observations": 130801, "first": "2021-09-01", "last": "2026-09-01", "missing": 0, "invalid": 0}
+{"source": "boi_prepay_linked", "series": 21, "observations": 3017, "first": "1996-01-31", "last": "2026-08-31", "missing": 0, "invalid": 0}
+{"source": "boi_prepay_unlinked", "series": 9, "observations": 1349, "first": "2008-10-31", "last": "2026-08-31", "missing": 0, "invalid": 0}

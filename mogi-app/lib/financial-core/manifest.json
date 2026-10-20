@@ -1,0 +1,18 @@
+{
+  "engineVersion": "mogi-cashflow-0.2.1",
+  "sourceProject": "mogi-financial-core",
+  "files": {
+    "cashflow.mjs": {
+      "source": "src/cashflow.mjs",
+      "sha256": "eff168aa358c831986f43605c5785864815adbc6cf5ddd34935fb6be2bcb7896"
+    },
+    "contracts.mjs": {
+      "source": "src/contracts.mjs",
+      "sha256": "8bf93e6c2998622ee86b9f9389e5a959c8130e8d93ff61631b22296041f0654c"
+    },
+    "boi329.json": {
+      "source": "rules/boi329.json",
+      "sha256": "2b17268c7c6f3ebe99d9d49f58d4ff4677bf8dbff2fb36f4e0a079eb88c35fa0"
+    }
+  }
+}

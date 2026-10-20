@@ -1,0 +1,42 @@
+boi_br {
+  documentId: '79124223a8042d46b2f7b61c03bbb23fe4180cfd74e70c1198490c859dde745e',
+  runId: '9ebe317456ad8c2ac095b00a9d13edc065c2d2d235c053d30b73146c84dcdd4a',
+  idempotent: false,
+  observations: 40923
+}
+boi_mortgage {
+  documentId: 'ba36d7b9b5d2b436428c61a96f1f0b60f24e22e575d710b945893a7695e90465',
+  runId: '22249c5eb1b2401ec76df5b2778e799f3eedd5d7af0eefb8780294bb5675ccd9',
+  idempotent: false,
+  observations: 21514
+}
+boi_zcm {
+  documentId: '330e20126c101986ed376c9d75b33c8e06d738a1cb0815ca84d5f0977fdb0156',
+  runId: 'f013ad3bb83f148c3a5c5df649469ccaa181483c076f201fdf99d983210e76bc',
+  idempotent: false,
+  observations: 32203
+}
+boi_equator {
+  documentId: '419093139222130d8d040080c7f11d4efa5504073897e2f8fa92c709320d6d4e',
+  runId: 'b9145069a95bd9369711d09f98a1b49c3b563aa1790e2b383a14fcd1899a73ab',
+  idempotent: false,
+  observations: 2200
+}
+boi_forecast451 {
+  documentId: '81ea7de279ca7a650749b644e67038b495b7bbbaacb2de7b2d98fdb48c27ec4c',
+  runId: '3230dea194b13d6ea342f9341da19f1a71df76969caf73f2b1def3b4ec2f4364',
+  idempotent: false,
+  observations: 130801
+}
+boi_prepay_linked {
+  documentId: '767d47f77e32ef4c47e08e8884b9141702a8e1c8367d5311475480179a73d17f',
+  runId: 'c786a813b5127e32a02083adba11a81ac973a6cc58965555fb43ae2984f9b92f',
+  idempotent: false,
+  observations: 3017
+}
+boi_prepay_unlinked {
+  documentId: 'a2481832a86e2399e22addc1c5988ab7be7c08ef913a6c0faed5a7104e2beca0',
+  runId: '5a87a86a2aad4b1b9f835a8f26f55df453190c6959b1ddbdb3e1d9c7990c2565',
+  idempotent: false,
+  observations: 1349
+}

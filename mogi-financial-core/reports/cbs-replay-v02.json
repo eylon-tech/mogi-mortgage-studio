@@ -1,0 +1,469 @@
+{
+  "id": "27e36d63-8a99-4838-a1cc-b881c9394f86",
+  "engineVersion": "mogi-cashflow-0.2.0",
+  "schemaVersion": "1",
+  "currency": "ILS",
+  "conventions": {
+    "period": "equal_months",
+    "rate": "nominal_annual",
+    "rounding": "half_up_to_agorot_each_month",
+    "indexFloor": "none",
+    "prepaymentTiming": "after_scheduled_payment",
+    "npvSign": "borrower_positive_draw_negative_payments",
+    "fees": "explicit_inputs_only",
+    "calendar": "no_stub_periods_or_day_count_adjustments",
+    "regulatoryEligibility": "not_assessed"
+  },
+  "inputDeclaration": {
+    "rateOrigin": "manual",
+    "indexOrigin": "historical_replay",
+    "verifiedCustomerRate": false
+  },
+  "summary": {
+    "months": 20,
+    "firstPayment": "62742.17",
+    "peakPayment": "65400.27",
+    "totalPaid": "1281361.91",
+    "interestPaid": "48834.83",
+    "capitalizedInterest": "0.00",
+    "indexation": "32527.08",
+    "totalFees": "0.00",
+    "costAbovePrincipal": "81361.91",
+    "closingBalance": "0.00",
+    "npv": "-32968.64",
+    "monthly": "0.00629605842871896671",
+    "annualEffectivePercent": "7.822465722824"
+  },
+  "warnings": [],
+  "rows": [
+    {
+      "month": 1,
+      "opening": "1200000.00",
+      "annualRatePercent": "4.5",
+      "indexLevel": "39297754.6130660000000000",
+      "indexation": "6763.84",
+      "interestAccrued": "4525.36",
+      "capitalizedInterest": "0.00",
+      "interestPaid": "4525.36",
+      "principalPaid": "58216.81",
+      "extraPrincipal": "0.00",
+      "fee": "0.00",
+      "payment": "62742.17",
+      "closing": "1148547.03"
+    },
+    {
+      "month": 2,
+      "opening": "1148547.03",
+      "annualRatePercent": "4.5",
+      "indexLevel": "39297754.6130660000000000",
+      "indexation": "0.00",
+      "interestAccrued": "4307.05",
+      "capitalizedInterest": "0.00",
+      "interestPaid": "4307.05",
+      "principalPaid": "58435.12",
+      "extraPrincipal": "0.00",
+      "fee": "0.00",
+      "payment": "62742.17",
+      "closing": "1090111.91"
+    },
+    {
+      "month": 3,
+      "opening": "1090111.91",
+      "annualRatePercent": "4.5",
+      "indexLevel": "39491339.6111599000000000",
+      "indexation": "5370.01",
+      "interestAccrued": "4108.06",
+      "capitalizedInterest": "0.00",
+      "interestPaid": "4108.06",
+      "principalPaid": "58943.18",
+      "extraPrincipal": "0.00",
+      "fee": "0.00",
+      "payment": "63051.24",
+      "closing": "1036538.74"
+    },
+    {
+      "month": 4,
+      "opening": "1036538.74",
+      "annualRatePercent": "4.5",
+      "indexLevel": "39917226.6069665000000000",
+      "indexation": "11178.36",
+      "interestAccrued": "3928.94",
+      "capitalizedInterest": "0.00",
+      "interestPaid": "3928.94",
+      "principalPaid": "59802.26",
+      "extraPrincipal": "0.00",
+      "fee": "0.00",
+      "payment": "63731.20",
+      "closing": "987914.84"
+    },
+    {
+      "month": 5,
+      "opening": "987914.84",
+      "annualRatePercent": "4.5",
+      "indexLevel": "39801075.6081102000000000",
+      "indexation": "-2874.63",
+      "interestAccrued": "3693.90",
+      "capitalizedInterest": "0.00",
+      "interestPaid": "3693.90",
+      "principalPaid": "59851.86",
+      "extraPrincipal": "0.00",
+      "fee": "0.00",
+      "payment": "63545.76",
+      "closing": "925188.35"
+    },
+    {
+      "month": 6,
+      "opening": "925188.35",
+      "annualRatePercent": "4.5",
+      "indexLevel": "39917226.6069665000000000",
+      "indexation": "2699.97",
+      "interestAccrued": "3479.58",
+      "capitalizedInterest": "0.00",
+      "interestPaid": "3479.58",
+      "principalPaid": "60251.62",
+      "extraPrincipal": "0.00",
+      "fee": "0.00",
+      "payment": "63731.20",
+      "closing": "867636.70"
+    },
+    {
+      "month": 7,
+      "opening": "867636.70",
+      "annualRatePercent": "4.5",
+      "indexLevel": "40072094.6054417000000000",
+      "indexation": "3366.19",
+      "interestAccrued": "3266.26",
+      "capitalizedInterest": "0.00",
+      "interestPaid": "3266.26",
+      "principalPaid": "60712.20",
+      "extraPrincipal": "0.00",
+      "fee": "0.00",
+      "payment": "63978.46",
+      "closing": "810290.69"
+    },
+    {
+      "month": 8,
+      "opening": "810290.69",
+      "annualRatePercent": "4.5",
+      "indexLevel": "40343113.6027732000000000",
+      "indexation": "5480.23",
+      "interestAccrued": "3059.14",
+      "capitalizedInterest": "0.00",
+      "interestPaid": "3059.14",
+      "principalPaid": "61352.02",
+      "extraPrincipal": "0.00",
+      "fee": "0.00",
+      "payment": "64411.16",
+      "closing": "754418.90"
+    },
+    {
+      "month": 9,
+      "opening": "754418.90",
+      "annualRatePercent": "4.5",
+      "indexLevel": "40110811.6050605000000000",
+      "indexation": "-4344.06",
+      "interestAccrued": "2812.78",
+      "capitalizedInterest": "0.00",
+      "interestPaid": "2812.78",
+      "principalPaid": "61227.49",
+      "extraPrincipal": "0.00",
+      "fee": "0.00",
+      "payment": "64040.27",
+      "closing": "688847.35"
+    },
+    {
+      "month": 10,
+      "opening": "688847.35",
+      "annualRatePercent": "4.5",
+      "indexLevel": "40304396.6031544000000000",
+      "indexation": "3324.55",
+      "interestAccrued": "2595.64",
+      "capitalizedInterest": "0.00",
+      "interestPaid": "2595.64",
+      "principalPaid": "61753.70",
+      "extraPrincipal": "0.00",
+      "fee": "0.00",
+      "payment": "64349.34",
+      "closing": "630418.20"
+    },
+    {
+      "month": 11,
+      "opening": "630418.20",
+      "annualRatePercent": "4.5",
+      "indexLevel": "40110811.6050605000000000",
+      "indexation": "-3027.95",
+      "interestAccrued": "2352.71",
+      "capitalizedInterest": "0.00",
+      "interestPaid": "2352.71",
+      "principalPaid": "61687.56",
+      "extraPrincipal": "0.00",
+      "fee": "0.00",
+      "payment": "64040.27",
+      "closing": "565702.69"
+    },
+    {
+      "month": 12,
+      "opening": "565702.69",
+      "annualRatePercent": "4.5",
+      "indexLevel": "40110811.6050605000000000",
+      "indexation": "0.00",
+      "interestAccrued": "2121.39",
+      "capitalizedInterest": "0.00",
+      "interestPaid": "2121.39",
+      "principalPaid": "61918.88",
+      "extraPrincipal": "0.00",
+      "fee": "0.00",
+      "payment": "64040.27",
+      "closing": "503783.81"
+    },
+    {
+      "month": 13,
+      "opening": "503783.81",
+      "annualRatePercent": "4.5",
+      "indexLevel": "39994660.6062041000000000",
+      "indexation": "-1458.83",
+      "interestAccrued": "1883.72",
+      "capitalizedInterest": "0.00",
+      "interestPaid": "1883.72",
+      "principalPaid": "61971.11",
+      "extraPrincipal": "0.00",
+      "fee": "0.00",
+      "payment": "63854.83",
+      "closing": "440353.87"
+    },
+    {
+      "month": 14,
+      "opening": "440353.87",
+      "annualRatePercent": "4.5",
+      "indexLevel": "40072094.6054417000000000",
+      "indexation": "852.57",
+      "interestAccrued": "1654.52",
+      "capitalizedInterest": "0.00",
+      "interestPaid": "1654.52",
+      "principalPaid": "62323.94",
+      "extraPrincipal": "0.00",
+      "fee": "0.00",
+      "payment": "63978.46",
+      "closing": "378882.50"
+    },
+    {
+      "month": 15,
+      "opening": "378882.50",
+      "annualRatePercent": "4.5",
+      "indexLevel": "40226962.6039168000000000",
+      "indexation": "1464.28",
+      "interestAccrued": "1426.30",
+      "capitalizedInterest": "0.00",
+      "interestPaid": "1426.30",
+      "principalPaid": "62799.42",
+      "extraPrincipal": "0.00",
+      "fee": "0.00",
+      "payment": "64225.72",
+      "closing": "317547.36"
+    },
+    {
+      "month": 16,
+      "opening": "317547.36",
+      "annualRatePercent": "4.5",
+      "indexLevel": "40691566.5993423000000000",
+      "indexation": "3667.53",
+      "interestAccrued": "1204.56",
+      "capitalizedInterest": "0.00",
+      "interestPaid": "1204.56",
+      "principalPaid": "63762.94",
+      "extraPrincipal": "0.00",
+      "fee": "0.00",
+      "payment": "64967.50",
+      "closing": "257451.95"
+    },
+    {
+      "month": 17,
+      "opening": "257451.95",
+      "annualRatePercent": "4.5",
+      "indexLevel": "40575415.6004859000000000",
+      "indexation": "-734.88",
+      "interestAccrued": "962.69",
+      "capitalizedInterest": "0.00",
+      "interestPaid": "962.69",
+      "principalPaid": "63819.37",
+      "extraPrincipal": "0.00",
+      "fee": "0.00",
+      "payment": "64782.06",
+      "closing": "192897.70"
+    },
+    {
+      "month": 18,
+      "opening": "192897.70",
+      "annualRatePercent": "4.5",
+      "indexLevel": "40575415.6004859000000000",
+      "indexation": "0.00",
+      "interestAccrued": "723.37",
+      "capitalizedInterest": "0.00",
+      "interestPaid": "723.37",
+      "principalPaid": "64058.69",
+      "extraPrincipal": "0.00",
+      "fee": "0.00",
+      "payment": "64782.06",
+      "closing": "128839.01"
+    },
+    {
+      "month": 19,
+      "opening": "128839.01",
+      "annualRatePercent": "4.5",
+      "indexLevel": "40691566.5993423000000000",
+      "indexation": "368.81",
+      "interestAccrued": "484.53",
+      "capitalizedInterest": "0.00",
+      "interestPaid": "484.53",
+      "principalPaid": "64482.97",
+      "extraPrincipal": "0.00",
+      "fee": "0.00",
+      "payment": "64967.50",
+      "closing": "64724.85"
+    },
+    {
+      "month": 20,
+      "opening": "64724.85",
+      "annualRatePercent": "4.5",
+      "indexLevel": "40962585.5966737000000000",
+      "indexation": "431.09",
+      "interestAccrued": "244.33",
+      "capitalizedInterest": "0.00",
+      "interestPaid": "244.33",
+      "principalPaid": "65155.94",
+      "extraPrincipal": "0.00",
+      "fee": "0.00",
+      "payment": "65400.27",
+      "closing": "0.00"
+    }
+  ],
+  "dataEvidence": [
+    {
+      "observationId": "619ed1646f63dc311efaffbdc21773bc3bf363046eadf01fc9ef76f71b504e5c",
+      "documentId": "4d41b92a332e845b1cdfc0984da54fc37e2f3ede8e40a43bc70abb5498116f36",
+      "sha256": "2426ef97ea7d4b85123e0a2cf41b6a843323495ffacf854fd15c3baee396e7c7",
+      "role": "realized_cpi"
+    },
+    {
+      "observationId": "c9debdd3860193fb1cf0168b5866fcbbe5c5f3c08ca87b4d16ed384ced2de88c",
+      "documentId": "4d41b92a332e845b1cdfc0984da54fc37e2f3ede8e40a43bc70abb5498116f36",
+      "sha256": "2426ef97ea7d4b85123e0a2cf41b6a843323495ffacf854fd15c3baee396e7c7",
+      "role": "realized_cpi"
+    },
+    {
+      "observationId": "f6fdf0c747bea15c073270fa1268107026baee4882ec29ad771b3362abb8997e",
+      "documentId": "4d41b92a332e845b1cdfc0984da54fc37e2f3ede8e40a43bc70abb5498116f36",
+      "sha256": "2426ef97ea7d4b85123e0a2cf41b6a843323495ffacf854fd15c3baee396e7c7",
+      "role": "realized_cpi"
+    },
+    {
+      "observationId": "b2d5aac155dab2e164ad3371a8fa455b1a771f5d760c44f1e5f4131d23d233ca",
+      "documentId": "4d41b92a332e845b1cdfc0984da54fc37e2f3ede8e40a43bc70abb5498116f36",
+      "sha256": "2426ef97ea7d4b85123e0a2cf41b6a843323495ffacf854fd15c3baee396e7c7",
+      "role": "realized_cpi"
+    },
+    {
+      "observationId": "0ff2ae80b2c1b3c85b2499dee984d30fa40193ac20b63cac00ba0f49ac5d654a",
+      "documentId": "4d41b92a332e845b1cdfc0984da54fc37e2f3ede8e40a43bc70abb5498116f36",
+      "sha256": "2426ef97ea7d4b85123e0a2cf41b6a843323495ffacf854fd15c3baee396e7c7",
+      "role": "realized_cpi"
+    },
+    {
+      "observationId": "8e74f9336a7363ae50eef03b09211c2a17a318bedf3d581c2f3d1215edbb7c7c",
+      "documentId": "4d41b92a332e845b1cdfc0984da54fc37e2f3ede8e40a43bc70abb5498116f36",
+      "sha256": "2426ef97ea7d4b85123e0a2cf41b6a843323495ffacf854fd15c3baee396e7c7",
+      "role": "realized_cpi"
+    },
+    {
+      "observationId": "8cf4539bc8cf97dd0299015e1549333b0f80dd5f6867f4a4cedb85704301e208",
+      "documentId": "4d41b92a332e845b1cdfc0984da54fc37e2f3ede8e40a43bc70abb5498116f36",
+      "sha256": "2426ef97ea7d4b85123e0a2cf41b6a843323495ffacf854fd15c3baee396e7c7",
+      "role": "realized_cpi"
+    },
+    {
+      "observationId": "ec883ddd3f3bb2dc8b51fe3eae5e48d341df764ae4ed2a2f10986d3834227d92",
+      "documentId": "4d41b92a332e845b1cdfc0984da54fc37e2f3ede8e40a43bc70abb5498116f36",
+      "sha256": "2426ef97ea7d4b85123e0a2cf41b6a843323495ffacf854fd15c3baee396e7c7",
+      "role": "realized_cpi"
+    },
+    {
+      "observationId": "cbccaf63553c2179ca6f503c837e8d6c36a1f49263d0502fd3408e38333f60ba",
+      "documentId": "4d41b92a332e845b1cdfc0984da54fc37e2f3ede8e40a43bc70abb5498116f36",
+      "sha256": "2426ef97ea7d4b85123e0a2cf41b6a843323495ffacf854fd15c3baee396e7c7",
+      "role": "realized_cpi"
+    },
+    {
+      "observationId": "af9ac14b89d366e1007161f4ab7cfa64645471b35359844728133e7a0949cd9c",
+      "documentId": "4d41b92a332e845b1cdfc0984da54fc37e2f3ede8e40a43bc70abb5498116f36",
+      "sha256": "2426ef97ea7d4b85123e0a2cf41b6a843323495ffacf854fd15c3baee396e7c7",
+      "role": "realized_cpi"
+    },
+    {
+      "observationId": "2f61b8bd17a4c25a998baf59d9164d5e5ec7fc52aa239cd78743adb0ac191af6",
+      "documentId": "4d41b92a332e845b1cdfc0984da54fc37e2f3ede8e40a43bc70abb5498116f36",
+      "sha256": "2426ef97ea7d4b85123e0a2cf41b6a843323495ffacf854fd15c3baee396e7c7",
+      "role": "realized_cpi"
+    },
+    {
+      "observationId": "f3f2720a845af7182a8ea2395974b23ba4d5e0b4dd0541f362c3f80eef3ccba0",
+      "documentId": "4d41b92a332e845b1cdfc0984da54fc37e2f3ede8e40a43bc70abb5498116f36",
+      "sha256": "2426ef97ea7d4b85123e0a2cf41b6a843323495ffacf854fd15c3baee396e7c7",
+      "role": "realized_cpi"
+    },
+    {
+      "observationId": "65e8a04eed79cc9cd5d5cf144154a9c8fef6757a35be8422748002e1d3d82414",
+      "documentId": "4d41b92a332e845b1cdfc0984da54fc37e2f3ede8e40a43bc70abb5498116f36",
+      "sha256": "2426ef97ea7d4b85123e0a2cf41b6a843323495ffacf854fd15c3baee396e7c7",
+      "role": "realized_cpi"
+    },
+    {
+      "observationId": "53c23308b649e31a91419ed89ad57f7e9b0159927bf057331b41068151e59736",
+      "documentId": "4d41b92a332e845b1cdfc0984da54fc37e2f3ede8e40a43bc70abb5498116f36",
+      "sha256": "2426ef97ea7d4b85123e0a2cf41b6a843323495ffacf854fd15c3baee396e7c7",
+      "role": "realized_cpi"
+    },
+    {
+      "observationId": "b7ebcb48a5dfd43a9b0242517402449f64313352a1828431d1e9af157e9ac773",
+      "documentId": "4d41b92a332e845b1cdfc0984da54fc37e2f3ede8e40a43bc70abb5498116f36",
+      "sha256": "2426ef97ea7d4b85123e0a2cf41b6a843323495ffacf854fd15c3baee396e7c7",
+      "role": "realized_cpi"
+    },
+    {
+      "observationId": "ca20979a73fd049dbc0df3f24ea32ad3e49cfccd4657baf8bcf855fecd58eb3d",
+      "documentId": "4d41b92a332e845b1cdfc0984da54fc37e2f3ede8e40a43bc70abb5498116f36",
+      "sha256": "2426ef97ea7d4b85123e0a2cf41b6a843323495ffacf854fd15c3baee396e7c7",
+      "role": "realized_cpi"
+    },
+    {
+      "observationId": "0472ec21e50cc1b80f46d17d4bacfcb5447bba3621f078e2e9262acff2aecc5d",
+      "documentId": "4d41b92a332e845b1cdfc0984da54fc37e2f3ede8e40a43bc70abb5498116f36",
+      "sha256": "2426ef97ea7d4b85123e0a2cf41b6a843323495ffacf854fd15c3baee396e7c7",
+      "role": "realized_cpi"
+    },
+    {
+      "observationId": "8ddf3cc7a5185177561f59fa8b509f04217e5d730f80a396963f8056489254fa",
+      "documentId": "4d41b92a332e845b1cdfc0984da54fc37e2f3ede8e40a43bc70abb5498116f36",
+      "sha256": "2426ef97ea7d4b85123e0a2cf41b6a843323495ffacf854fd15c3baee396e7c7",
+      "role": "realized_cpi"
+    },
+    {
+      "observationId": "46483da0f482c584c6fc085beb540b3bf8f0fddd68eebbe469c57be2d54fc2ed",
+      "documentId": "4d41b92a332e845b1cdfc0984da54fc37e2f3ede8e40a43bc70abb5498116f36",
+      "sha256": "2426ef97ea7d4b85123e0a2cf41b6a843323495ffacf854fd15c3baee396e7c7",
+      "role": "realized_cpi"
+    },
+    {
+      "observationId": "fc80ce31bf93dc600b2e677d95e742a34abc32692bd8463fa871f25688ca7889",
+      "documentId": "4d41b92a332e845b1cdfc0984da54fc37e2f3ede8e40a43bc70abb5498116f36",
+      "sha256": "2426ef97ea7d4b85123e0a2cf41b6a843323495ffacf854fd15c3baee396e7c7",
+      "role": "realized_cpi"
+    },
+    {
+      "observationId": "a8d9e12c316b9f6ef59120f3cca9437a40776c5b05d31ce6fa56f47b53d20e9f",
+      "documentId": "4d41b92a332e845b1cdfc0984da54fc37e2f3ede8e40a43bc70abb5498116f36",
+      "sha256": "2426ef97ea7d4b85123e0a2cf41b6a843323495ffacf854fd15c3baee396e7c7",
+      "role": "realized_cpi"
+    }
+  ],
+  "personalPricingEnabled": false
+}

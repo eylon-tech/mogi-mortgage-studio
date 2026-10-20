@@ -1,0 +1,22 @@
+{
+  "loan": {
+    "schemaVersion": "1",
+    "currency": "ILS",
+    "principal": "1200000.00",
+    "termMonths": 20,
+    "rate": {
+      "annualPercent": "4.5",
+      "convention": "nominal_annual",
+      "origin": "manual",
+      "description": "Fixed-rate mathematical reference case; not a personalized bank quote"
+    },
+    "amortization": "annuity",
+    "discountAnnualEffectivePercent": "4.5"
+  },
+  "cbsRealizedIndex": {
+    "asOf": "2026-10-08T15:55:31.826Z",
+    "baseObservationPeriod": "2024-12-01",
+    "firstObservationPeriod": "2025-01-01",
+    "indexFloor": "none"
+  }
+}

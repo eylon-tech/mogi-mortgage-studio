@@ -1,0 +1,7 @@
+{
+  "loan": {
+    "schemaVersion":"1", "currency":"ILS", "principal":"1200000.00", "termMonths":300,
+    "rate":{"annualPercent":"4.5", "convention":"nominal_annual", "origin":"manual", "description":"Fixed-rate mathematical reference case; not a personalized bank quote"},
+    "amortization":"annuity", "discountAnnualEffectivePercent":"4.5"
+  }
+}

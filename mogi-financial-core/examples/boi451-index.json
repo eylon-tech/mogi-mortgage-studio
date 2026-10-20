@@ -1,0 +1,22 @@
+{
+  "loan": {
+    "schemaVersion": "1",
+    "currency": "ILS",
+    "principal": "1200000.00",
+    "termMonths": 300,
+    "rate": {
+      "annualPercent": "3",
+      "convention": "nominal_annual",
+      "origin": "manual",
+      "description": "Illustrative fixed linked rate; not estimated for a customer"
+    },
+    "amortization": "annuity",
+    "discountAnnualEffectivePercent": "4.5"
+  },
+  "boi451Index": {
+    "asOf": "2026-10-08T15:48:36.456Z",
+    "vintage": "2026-09-01",
+    "averaging": "calendar",
+    "indexFloor": "none"
+  }
+}

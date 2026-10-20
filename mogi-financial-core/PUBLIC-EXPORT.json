@@ -1,0 +1,12 @@
+{
+  "exportDate": "2026-10-20",
+  "changes": "Removed captured Set-Cookie values; no economic observations changed. Historical run result and deployed app snapshot hashes remain the original recorded values. Re-running research from the redacted dataset generates a new dataset/run identity.",
+  "rawDocument": {
+    "originalSha256": "5e407f3da4b1d03da8bc40dca79dea36b95f91dae5cde10babded2a792baa9dc",
+    "publicSha256": "2426ef97ea7d4b85123e0a2cf41b6a843323495ffacf854fd15c3baee396e7c7"
+  },
+  "researchDataset": {
+    "originalSha256": "849d7f2f7c3de2164a41f88268095fe2b9d9d0e1bd33bec6548c083d4481b23d",
+    "publicSha256": "25a06dbc46268c14d1e037bbe68fe3324918cb1193026ddcc9a56aa2f4e406aa"
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "name": "mogi-financial-core",
+  "version": "0.2.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.13"
+  },
+  "scripts": {
+    "test": "node --test tests/*.test.mjs",
+    "db:ingest": "node scripts/ingest.mjs",
+    "start": "node src/server.mjs",
+    "report": "node scripts/report.mjs",
+    "contracts:build": "node scripts/build-contract.mjs",
+    "data:refresh": "sh scripts/refresh.sh",
+    "test:parsers": "python3 -m unittest discover -s tests -p 'test_*.py'",
+    "research:export": "node scripts/export-research.mjs",
+    "research:run": "python3 research/forecast/backtest.py",
+    "research:save": "node scripts/persist-research.mjs",
+    "research:report": "python3 research/forecast/render_report.py"
+  },
+  "dependencies": {
+    "@electric-sql/pglite": "0.3.14",
+    "decimal.js": "10.6.0",
+    "pg": "8.16.3",
+    "zod": "3.25.76",
+    "zod-to-json-schema": "3.25.0"
+  },
+  "devDependencies": {
+    "ajv": "8.20.0",
+    "ajv-formats": "3.0.1"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "source": "https://edge.boi.gov.il/FusionEdgeServer/sdmx/v2/structure/dataflow/BOI.STATISTICS/BIR_MRTG_99/1.0?references=all",
+  "sha256": "769d8e959dd224f9a529b73b8f85fd6eba06e2aab4654c9d5b52a809bd151ee8",
+  "verifiedCodes": {
+    "BS_ITEM.A2C": "housing loans",
+    "BS_ITEM.A2B2": "consumer loans secured by housing; excluded",
+    "PTI.P01": "total",
+    "PTI.P07": "bullet/balloon loans; excluded",
+    "DATA_TYPE.R": "average interest rate",
+    "DATA_TYPE.RB": "benchmark only; not full rate",
+    "DATA_TYPE.RM": "margin only; not full rate",
+    "IR_FV_TYPE.F": "fixed"
+  },
+  "rateConvention": "source_unspecified; not silently converted"
+}

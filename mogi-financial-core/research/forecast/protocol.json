@@ -1,0 +1,27 @@
+{
+  "version": "mogi-rate-research-1.0.0",
+  "scope": "monthly_system_average_mortgage_rates_not_customer_quotes",
+  "targets": {
+    "fixed_unlinked": "BNK_99034_LR_BIR_MRTG_467",
+    "fixed_linked": "BNK_99034_LR_BIR_MRTG_1492"
+  },
+  "horizonsMonths": [1, 3, 6],
+  "targetAvailabilityLagMonths": 2,
+  "macroAvailabilityLagMonths": 1,
+  "sensitivityLags": {"target": 3, "macro": 2},
+  "firstOrigin": "2012-07",
+  "holdoutOriginStart": "2024-03",
+  "holdoutOriginEnd": "2026-02",
+  "minTrainingRows": 48,
+  "minSelectionErrors": 24,
+  "selectionWindowMonths": 36,
+  "candidateWindows": [60, 120, null],
+  "candidateAlphas": [1, 10, 100],
+  "candidateFeatureSets": ["ar", "policy", "curve", "all"],
+  "candidateBlendWeights": [0.5, 1.0],
+  "intervalNominalCoverage": 0.9,
+  "bootstrapSeed": 20261008,
+  "bootstrapReplicates": 2000,
+  "testPolicy": "Freeze model configuration before holdout. Refit coefficients monthly using only labels whose assumed availability is no later than that origin. Never select configurations using holdout outcomes.",
+  "availabilityWarning": "Lags are explicit conservative research assumptions, not verified historical release dates. Current revised vintages are used; strict point-in-time verification is false."
+}

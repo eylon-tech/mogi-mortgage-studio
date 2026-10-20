@@ -1,0 +1,110 @@
+{
+  "at": "2026-10-07T22:39:04.067Z",
+  "unresolved": [
+    {
+      "case": "Wise variable 60-month reset",
+      "wiseTotal": 2132103,
+      "mogiFullPrecisionTotal": 2132150.58795,
+      "difference": 47.58795,
+      "reason": "Exact internal rounding or source precision not independently confirmed"
+    }
+  ],
+  "results": [
+    {
+      "name": "Annuity matches Jerusalem and Fibi to cents",
+      "status": "passed"
+    },
+    {
+      "name": "Wise full fixed monthly schedule",
+      "status": "passed"
+    },
+    {
+      "name": "Equal principal Wise reference",
+      "status": "passed"
+    },
+    {
+      "name": "Partial grace Wise reference",
+      "status": "passed"
+    },
+    {
+      "name": "Full grace capitalization Wise reference",
+      "status": "passed"
+    },
+    {
+      "name": "Partial balloon separates maturity",
+      "status": "passed"
+    },
+    {
+      "name": "Full balloon separates maturity and PTI",
+      "status": "passed"
+    },
+    {
+      "name": "Partial prepayment reduce payment Wise reference",
+      "status": "passed"
+    },
+    {
+      "name": "Term reduction preserves payment and balances cashflows",
+      "status": "passed"
+    },
+    {
+      "name": "451 variable rates match; known total difference is explicitly measured",
+      "status": "passed"
+    },
+    {
+      "name": "451 indexed forecast matches Wise",
+      "status": "passed"
+    },
+    {
+      "name": "Regulatory debt and income recognition boundaries",
+      "status": "passed"
+    },
+    {
+      "name": "Missing essential field blocks schedule",
+      "status": "passed"
+    },
+    {
+      "name": "Existing variable requires next reset",
+      "status": "passed"
+    },
+    {
+      "name": "Unknown track never produces a full forecast",
+      "status": "passed"
+    },
+    {
+      "name": "Interest shock starts at contractual variable reset",
+      "status": "passed"
+    },
+    {
+      "name": "Effective and nominal conversion round trip",
+      "status": "passed"
+    },
+    {
+      "name": "Questionnaire strips identifying fields and requires review",
+      "status": "passed"
+    },
+    {
+      "name": "Incomplete numeric limits block optimization",
+      "status": "passed"
+    },
+    {
+      "name": "Invalid income and fees block validation",
+      "status": "passed"
+    },
+    {
+      "name": "Optimizer hard budget and all candidate limits",
+      "status": "passed"
+    },
+    {
+      "name": "Optimizer explicitly rejects impossible target",
+      "status": "passed"
+    },
+    {
+      "name": "Official xlsx parsers reproduce offline source extraction",
+      "status": "passed"
+    },
+    {
+      "name": "CSV parser keeps official ZCM observation",
+      "status": "passed"
+    }
+  ]
+}

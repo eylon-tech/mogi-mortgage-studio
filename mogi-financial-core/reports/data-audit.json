@@ -1,0 +1,195 @@
+{
+  "generatedAt": "2026-10-08T15:48:36.456Z",
+  "backend": "pglite",
+  "personalPricingEnabled": false,
+  "sources": [
+    {
+      "source_id": "boi_br",
+      "series": 5,
+      "observations": 40923,
+      "first_period": "1994-01-27",
+      "last_period": "2026-10-08",
+      "missing": 537,
+      "invalid": 0
+    },
+    {
+      "source_id": "boi_equator",
+      "series": 88,
+      "observations": 2200,
+      "first_period": "2024-08-01",
+      "last_period": "2026-08-01",
+      "missing": 0,
+      "invalid": 0
+    },
+    {
+      "source_id": "boi_forecast451",
+      "series": 6,
+      "observations": 130801,
+      "first_period": "2021-09-01",
+      "last_period": "2026-09-01",
+      "missing": 0,
+      "invalid": 0
+    },
+    {
+      "source_id": "boi_mortgage",
+      "series": 129,
+      "observations": 21514,
+      "first_period": "2003-01-01",
+      "last_period": "2026-08-01",
+      "missing": 0,
+      "invalid": 0
+    },
+    {
+      "source_id": "boi_prepay_linked",
+      "series": 21,
+      "observations": 3017,
+      "first_period": "1996-01-31",
+      "last_period": "2026-08-31",
+      "missing": 0,
+      "invalid": 0
+    },
+    {
+      "source_id": "boi_prepay_unlinked",
+      "series": 9,
+      "observations": 1349,
+      "first_period": "2008-10-31",
+      "last_period": "2026-08-31",
+      "missing": 0,
+      "invalid": 0
+    },
+    {
+      "source_id": "boi_zcm",
+      "series": 30,
+      "observations": 32203,
+      "first_period": "1992-01-01",
+      "last_period": "2026-10-07",
+      "missing": 19,
+      "invalid": 0
+    },
+    {
+      "source_id": "cbs_cpi",
+      "series": 45,
+      "observations": 16546,
+      "first_period": "1951-09-01",
+      "last_period": "2026-08-01",
+      "missing": 13,
+      "invalid": 0
+    }
+  ],
+  "totalObservations": 248553,
+  "totalSeries": 333,
+  "fixed": {
+    "months": 300,
+    "firstPayment": "6669.99",
+    "peakPayment": "6669.99",
+    "totalPaid": "2000996.74",
+    "interestPaid": "800996.74",
+    "capitalizedInterest": "0.00",
+    "indexation": "0.00",
+    "totalFees": "0.00",
+    "costAbovePrincipal": "800996.74",
+    "closingBalance": "0.00",
+    "npv": "-11132.18",
+    "monthly": "0.00374999974832229158",
+    "annualEffectivePercent": "4.593982189352"
+  },
+  "boi451Linked": {
+    "months": 300,
+    "firstPayment": "5698.27",
+    "peakPayment": "9315.71",
+    "totalPaid": "2203280.57",
+    "interestPaid": "606828.25",
+    "capitalizedInterest": "0.00",
+    "indexation": "396452.32",
+    "totalFees": "0.00",
+    "costAbovePrincipal": "1003280.57",
+    "closingBalance": "0.00",
+    "npv": "-74752.31",
+    "monthly": "0.00412806493497512597",
+    "annualEffectivePercent": "5.067710077076"
+  },
+  "issues": [
+    {
+      "source_id": "boi_equator",
+      "code": "ROLLING_WINDOW",
+      "severity": "warning",
+      "detail": {
+        "note": "Earlier bank-level observations are absent; aggregate BIR is not a substitute.",
+        "months": 25,
+        "lastAvailable": "2026-08-01",
+        "firstAvailable": "2024-08-01",
+        "requestedStart": "2023-03-01"
+      }
+    },
+    {
+      "source_id": "boi_equator",
+      "code": "ROLLING_WINDOW",
+      "severity": "warning",
+      "detail": {
+        "note": "Earlier bank-level observations are absent; aggregate BIR is not a substitute.",
+        "months": 25,
+        "lastAvailable": "2026-08-01",
+        "firstAvailable": "2024-08-01",
+        "requestedStart": "2023-03-01"
+      }
+    },
+    {
+      "source_id": "boi_forecast451",
+      "code": "HISTORICAL_RESTATEMENT_POSSIBLE",
+      "severity": "info",
+      "detail": {
+        "note": "2022 methodology explicitly replaced historical curves. Latest historical workbook is not a point-in-time archive. Original publication times unknown.",
+        "methodology": "https://www.boi.org.il/boi_files/Statistics/Estimation%20of%20yields%20from%20government%20bonds.pdf"
+      }
+    },
+    {
+      "source_id": "boi_mortgage",
+      "code": "AGGREGATE_NOT_CUSTOMER_PRICING",
+      "severity": "info",
+      "detail": {
+        "note": "Keep SDMX codes. LTV/PTI volume bins are not borrower interest-rate labels.",
+        "reportingEntities": [
+          "99034"
+        ]
+      }
+    },
+    {
+      "source_id": "boi_prepay_linked",
+      "code": "MISSING_EFFECTIVE_DATE",
+      "severity": "warning",
+      "detail": {
+        "row": 174,
+        "note": "Preserved as NULL; not inferred from adjacent rows.",
+        "sheet": "RESULT_OLD",
+        "reportingDate": "2002-10-31"
+      }
+    },
+    {
+      "source_id": "boi_prepay_linked",
+      "code": "PREPAYMENT_NOT_FEE_CALCULATOR",
+      "severity": "info",
+      "detail": {
+        "note": "Reference rates and distinct historical tenor regimes only. No automatic statutory fee calculation; pre-November-2002 conventions and bucket boundaries remain distinct; do not auto-convert."
+      }
+    },
+    {
+      "source_id": "boi_prepay_unlinked",
+      "code": "PREPAYMENT_NOT_FEE_CALCULATOR",
+      "severity": "info",
+      "detail": {
+        "note": "Reference rates and distinct historical tenor regimes only. No automatic statutory fee calculation; pre-November-2002 conventions and bucket boundaries remain distinct; do not auto-convert."
+      }
+    },
+    {
+      "source_id": "cbs_cpi",
+      "code": "CPI_PUBLICATION_TIMES_UNKNOWN",
+      "severity": "info",
+      "detail": {
+        "last": "2026-08-01",
+        "note": "Actual reference-month CPI and CBS-published rebased levels. This endpoint does not provide historical publication timestamps; retrospective replay only, with explicit reference months and captured/ingested asOf.",
+        "first": "1951-09-01",
+        "months": 900
+      }
+    }
+  ]
+}

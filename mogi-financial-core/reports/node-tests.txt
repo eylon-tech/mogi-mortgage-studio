@@ -1,0 +1,52 @@
+▶ HTTP API, point-in-time data and reproducible scenarios
+  ✔ Health and OpenAPI are served (27.969333ms)
+  ✔ Invalid timestamps, absent asOf, dates and pagination are rejected (9.136125ms)
+  ✔ Historical rows captured today are not visible to an earlier backtest (4.08ms)
+  ✔ Complete curves separate averaging methods (123.639959ms)
+  ✔ Unavailable vintage fails explicitly (3.583291ms)
+  ✔ Simulation persists an exact replayable input/output (1138.802709ms)
+  ✔ BOI-indexed scenario pins all used observations and source hashes (69.039042ms)
+  ✔ Invalid cashflow input cannot create a saved run (5.445667ms)
+  ✔ Rejects cross-origin writes and non-JSON payloads (4.132125ms)
+✔ HTTP API, point-in-time data and reproducible scenarios (2719.091333ms)
+✔ Known fixed annuity: closed-form PMT and reconciled monthly agorot (1157.718542ms)
+✔ Zero interest divides principal and adjusts final cent (2.462166ms)
+✔ Effective annual rate is converted, never divided by twelve (1145.712292ms)
+✔ Equal principal independent arithmetic reference (508.447542ms)
+✔ Interest-only balloon pays principal at maturity (455.506ms)
+✔ Capitalized balloon matches compound accumulation within monthly rounding bound (380.412875ms)
+✔ Interest-only grace preserves principal and leaves amortization within original term (460.795417ms)
+✔ Capitalizing grace accrues interest before amortization (450.391958ms)
+✔ Reset applies on named month, including during grace (452.810041ms)
+✔ Index level is applied to opening principal before interest (1.113333ms)
+✔ Base floor is not a previous-month ratchet (1.794708ms)
+✔ Prepayment is after installment; recast begins next month (908.417667ms)
+✔ Term reduction retains payment and closes early (405.004625ms)
+✔ Full prepayment caps at outstanding principal (0.605958ms)
+✔ NPV borrower sign and IRR independent one-period root (0.982416ms)
+✔ Upfront fee changes net draw and raises effective borrowing cost (14.881875ms)
+✔ Forward curve: flat curve stays flat; missing or out-of-range fails (0.373708ms)
+✔ Negative rates are supported under the stated monthly convention (8.303292ms)
+✔ Ambiguous/missing inputs are rejected, including numeric JSON rates and incomplete paths (0.749459ms)
+✔ Deterministic mixed scenarios conserve every agora (167.854083ms)
+▶ PostgreSQL foundation: migrations, immutable releases and temporal selection
+  ✔ Migration is repeatable (1.702833ms)
+  ✔ First import and idempotent repeated import (13.006875ms)
+  ✔ Published period does not backdate availability (2.954459ms)
+  ✔ Revision keeps both values and supports prior asOf (7.681ms)
+  ✔ Evidence cannot be edited or deleted (3.712709ms)
+  ✔ Blank is distinct from zero; newest missing value does not fall back (13.881625ms)
+  ✔ A reversion to previously seen bytes remains a new release (8.680625ms)
+  ✔ Deleted rows do not resurrect from an older release (9.118417ms)
+  ✔ Failed import is atomic and cannot become latest (13.429083ms)
+  ✔ Metadata drift fails instead of corrupting series units (5.71525ms)
+  ✔ Personal pricing gate cannot be activated in the database (0.534041ms)
+✔ PostgreSQL foundation: migrations, immutable releases and temporal selection (1252.6785ms)
+ℹ tests 42
+ℹ suites 0
+ℹ pass 42
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 6577.041167

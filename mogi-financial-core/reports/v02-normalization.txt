@@ -1,0 +1,2 @@
+{"source": "boi_equator", "series": 88, "observations": 2200, "first": "2024-08-01", "last": "2026-08-01", "missing": 0, "invalid": 0}
+{"source": "cbs_cpi", "series": 45, "observations": 16546, "first": "1951-09-01", "last": "2026-08-01", "missing": 13, "invalid": 0}

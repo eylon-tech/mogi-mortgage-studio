@@ -1,0 +1,21 @@
+import {readFile,writeFile} from 'node:fs/promises';
+import assert from 'node:assert/strict';
+import Ajv2020 from 'ajv/dist/2020.js';
+import addFormats from 'ajv-formats';
+const root='http://127.0.0.1:4318';
+const get=async path=>{const res=await fetch(root+path);assert.equal(res.status,200);return res.json()};
+const post=async(path,body)=>{const res=await fetch(root+path,{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify(body)});const result=await res.json();assert.equal(res.status,201,JSON.stringify(result));return result};
+const asOf=new Date().toISOString(),base=JSON.parse(await readFile('examples/fixed.json','utf8'));
+const request={schemaVersion:'1',valuationDate:'2026-10-08',discountAnnualEffectivePercent:'4.5',transaction:{purpose:'purchase',propertyClass:'single',propertyValue:'2000000',inIsrael:true,isIsraeliCitizen:true,willResideInProperty:true,propertyCountAfterTransaction:1},income:[{id:'synthetic-salary',kind:'salary',declaredNet:'30000',recognizedNet:'30000',frequency:'monthly',status:'included',reason:'Synthetic demonstration, not a customer record',evidenceReference:'example:synthetic'}],tracks:[{id:'fixed-unlinked',kind:'fixed_unlinked',projection:'explicit_scenario',simulation:{loan:{...base.loan,principal:'600000',termMonths:240}}},{id:'fixed-linked',kind:'fixed_linked',projection:'explicit_scenario',simulation:{loan:{...base.loan,principal:'400000',termMonths:240,rate:{...base.loan.rate,annualPercent:'3',description:'Illustrative rate, not a customer prediction'}},boi451Index:{asOf,vintage:'2026-09-01',averaging:'calendar',indexFloor:'none'}}}]};
+const bundle=await post('/v1/bundles',request);
+assert.equal(bundle.completeScenario,true);assert.equal(bundle.regulation.status,'passes_baseline');assert.equal(bundle.scenario.summary.closingBalance,'0.00');
+const saved=await get('/v1/bundles/'+bundle.id);assert.deepEqual(saved.result.scenario,bundle.scenario);
+const cpiRequest={loan:{...base.loan,termMonths:20},cbsRealizedIndex:{asOf,baseObservationPeriod:'2024-12-01',firstObservationPeriod:'2025-01-01',indexFloor:'none'}};
+const cpi=await post('/v1/simulations',cpiRequest);assert.equal(cpi.dataEvidence.length,21);assert.equal(cpi.inputDeclaration.indexOrigin,'historical_replay');
+const contract=await get('/openapi.json'),ajv=new Ajv2020({strict:false,allErrors:true});addFormats(ajv);ajv.addSchema({$id:'mogi-live-contract',components:contract.components});
+for(const [name,obj] of [['BundleRequest',request],['BundleResult',bundle],['SimulationRequest',cpiRequest],['SimulationResult',cpi]]){const check=ajv.compile({$ref:'mogi-live-contract#/components/schemas/'+name});assert.ok(check(obj),JSON.stringify(check.errors))}
+const research=await get('/v1/research/rate-backtests/latest'),pointer=JSON.parse(await readFile('research/forecast/latest.json','utf8'));assert.equal(research.id,pointer.resultSha256);assert.equal(research.optimizer_connected,false);
+const coverage=await get('/v1/coverage');assert.equal(coverage.sources.find(s=>s.source_id==='cbs_cpi').observations,16546);
+for(const [name,value] of [['examples/bundle-boi451.json',request],['examples/cbs-replay.json',cpiRequest],['reports/bundle-v02.json',bundle],['reports/cbs-replay-v02.json',cpi]])await writeFile(name,JSON.stringify(value,null,2));
+const verification={checkedAt:asOf,health:await get('/health'),bundleId:bundle.id,bundleEvidence:bundle.dataEvidence.length,bundleReplayIdentical:true,cpiId:cpi.id,cpiEvidence:cpi.dataEvidence.length,backtestResultSha256:research.id,contractValidated:true,observations:coverage.sources.reduce((n,s)=>n+s.observations,0),series:coverage.sources.reduce((n,s)=>n+s.series,0),reportStatus:(await fetch(root+'/research/rates')).status,liveSiteConnected:false};
+await writeFile('reports/delivery-verification-v02.json',JSON.stringify(verification,null,2));console.log(JSON.stringify(verification,null,2));
